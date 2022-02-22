@@ -1,0 +1,8 @@
+
+  <h1><%=@dog.name%></h1>
+  <p>Owner: <%= @dog.user.first_name  %></p>
+  <p>Breed: <%= @dog.breed %></p>
+  <p>Age: <%= @dog.age %></p>
+  <p>Character: <%= @dog.description %></p>
+  <p>£ <%= @dog.price %> per hour</p>
+  <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
