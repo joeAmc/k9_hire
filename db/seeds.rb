@@ -5,3 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+puts "Creating 10 Users..."
+10.times do
+  user = User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::String.random(length: 3..12)
+  )
+end
+puts 'User Seed Complete!'
+
+puts "Creating 10 Dogs..."
+10.times do
+  dog = Dog.create(
+    name: Faker::Creature::Dog.name,
+    breed: Faker::Creature::Dog.breed,
+    age: Faker::Number.number(digits: 2),
+    description: Faker::Lorem.sentences(number: 3),
+    price: Faker::Commerce.price(range: 10..50.0, as_string: true),
+    location: Faker::Address.full_address
+  )
+end
+puts 'Dog Seed Complete!'
+
+puts "Creating 10 Bookings..."
+10.times do
+  booking = Booking.create(
+    availability: Faker::Date.forward(days: 7),
+    total_price: Faker::Commerce.price(range: 50..100.0, as_string: true)
+  )
+end
+puts 'Booking Seed Complete!'
