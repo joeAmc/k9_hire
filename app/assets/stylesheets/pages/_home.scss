@@ -1,1 +1,77 @@
 // Specific CSS for your home-page
+.topnav{
+  text-align: center;
+  background-color: lightgrey;
+  padding:10px;
+}
+.about{
+  margin-right: 50px;
+  margin-left: 50px;
+}
+.k9-sign{
+  margin-right: 50px;
+}
+.sign-up{
+  margin-right: 50px;
+}
+.login{
+  margin-right: 50px;
+}
+.logo{
+  height: 50px;
+  width: 60px;
+}
+.title{
+  background-image: url("https://www.outsideonline.com/wp-content/uploads/2018/12/10/running-dog-breeds_h.jpg");
+  padding:150px 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.title h1{
+  color:white;
+  font-weight: bold;
+}
+.title h3{
+  color: white;
+  font-weight: bold;
+}
+.form{
+  text-align: center;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width:22%;
+  margin-top:20px;
+  background-color: white;
+  width: 18rem;
+  padding:10px;
+}
+
+.card img{
+  height:250px;
+  width:200px;
+}
+.card-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 125px 125px;
+}
+.cards-container {
+  float: left;
+  width: 50%;
+  height: 300px;
+}
+.header-4{
+  display: flex;
+  justify-content: space-between;
+  padding:10px;
+}
+.title h2{
+  justify-content: right;
+}
+.body{
+  margin:0px;
+  width:100px;
+}
