@@ -1,8 +1,80 @@
-
-  <h1><%=@dog.name%></h1>
-  <p>Owner: <%= @dog.user.first_name  %></p>
-  <p>Breed: <%= @dog.breed %></p>
-  <p>Age: <%= @dog.age %></p>
-  <p>Character: <%= @dog.description %></p>
-  <p>£ <%= @dog.price %> per hour</p>
-  <%= image_tag "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*", alt: 'Dog', style: 'height:200px; width:auto'%>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%# <a class="navbar-brand" href="#"> %>
+      <i class="fa fa-paw" style="font-size:25px;"></i>
+    <%# </a> %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <%= link_to 'Home', root_path, class: 'nav-text' %>
+            <%# <a class="nav-link" href="#">Home</a> %>
+          </li>
+          <li class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Profile</a>
+            </div>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="card-trip">
+  <div class="images">
+    <%= image_tag 'https://www.petmd.com/sites/default/files/2020-11/picture-of-golden-retriever-dog_0.jpg', alt: 'Susi', style: 'height:300px; width: 35vh; object-fit: cover'%>
+    <%= image_tag 'https://www.ctvsh.com/sites/default/files/styles/large/public/golden-retriever-dog-breed-info.jpg?itok=KV7Ojj-C', alt: 'Susi', style: 'height:300px; width: 35vh; object-fit: cover'%>
+    <%= image_tag 'https://media1.popsugar-assets.com/files/thumbor/fe_TEBbRM3ZlH2WR2P-pI5hbqSI/876x0:4381x3505/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/12/18/763/n/46902966/4759e2855dfa5f7c857892.88399573_/i/what-kind-health-problems-do-golden-retrievers-have.jpg', alt: 'Susi', style: 'height:300px; width: 35vh; object-fit: cover'%>
+    <%= image_tag 'https://images.saymedia-content.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:eco%2Cw_1200/MTc0MDk2MzYxNjM1OTgwODY2/what-you-should-know-about-owning-a-golden-retriever.jpg', alt: 'Susi', style: 'height:300px; width: 35vh; object-fit: cover'%>
+  </div>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%=@dog.name%></h2>
+      <p>Owner: <%= @dog.user.first_name  %></p>
+      <p>Breed: <%= @dog.breed %></p>
+      <p>Age: <%= @dog.age %></p>
+      <p>Character: <%= @dog.description %></p>
+      <%# <div class="paw">
+        <i class="fa fa-paw" style="font-size:25px;"></i>
+      </div> %>
+      <p>£ <%= @dog.price %> per hour</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
+        <%="Book #{@dog.name}"%>
+      </button>
+    </div>
+  </div>
+</div>
+   <!-- Button trigger modal -->
+  <!-- Modal -->
+  <div class="modal fade" id=<%= "dog-modal-#{@dog.id}" %> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby=<%= "staticBackdropLabel-#{@dog.id}" %> aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id=<%= "staticBackdropLabel-#{@dog.id}" %>><%= "You've booked #{@dog.name}!"%></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <h2><%= "Booking calendar coming soon!..."  %></h2>
+            <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <%= link_to "Book #{@dog.name}", dog_path(@dog), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    K9 Hire<i class="fa fa-paw" style="font-size:25px;"></i>
+  </div>
+</div>
