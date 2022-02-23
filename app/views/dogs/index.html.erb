@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+<% @dogs.each do |dog| %>
+  <h1><%=dog.name%></h1>
+  <p>Breed: <%= dog.breed %></p>
+  <p>Age: <%= dog.age %></p>
+  <p>£ <%= dog.price %> per hour</p>
+    <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
+  <%= link_to 'More info', dog_path(dog) %>
+
+
+
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{dog.id}"%>>
+    <%='More info'%>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id=<%= "dog-modal-#{dog.id}" %> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby=<%= "staticBackdropLabel-#{dog.id}" %> aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id=<%= "staticBackdropLabel-#{dog.id}" %>><%=dog.name%></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           <p>Owner: <%= dog.user.first_name  %></p>
+            <p>Breed: <%= dog.breed %></p>
+            <p>Age: <%= dog.age %></p>
+            <p>Character: <%= dog.description %></p>
+            <p>£ <%= dog.price %> per hour</p>
+            <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <%= link_to "Book #{dog.name}", dog_path(dog), class: "btn btn-primary" %>
+        </div>
+=======
 <div class="container">
     <% @dogs.each do |dog| %>
   <div class="dog-card">
@@ -13,6 +51,7 @@
     <div class="card-buttons">
       <div class="button">
         <%= link_to "Book #{dog.name}", dog_path(dog), class: "btn btn-primary" %><hr>
+>>>>>>> ee321ee08f51fefd276b5a9788ccaaffd390c987
       </div>
     </div>
   </div>
