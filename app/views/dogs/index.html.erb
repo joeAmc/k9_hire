@@ -1,83 +1,37 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-       <i class="fa fa-paw" style="font-size:25px;"></i>
-      <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" /> %>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <%# <a class="nav-link" href="#">Home</a> %>
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-            </div>
-          </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
-      </ul>
+<div class="container">
+    <% @dogs.each do |dog| %>
+  <div class="dog-card">
+    <div class="image">
+      <%= image_tag "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*", alt: 'Dog', style: 'height:200px; width:auto'%>
     </div>
+    <div class="card-info">
+      <h1><%=dog.name%></h1>
+      <p>Breed: <%= dog.breed %></p>
+      <p>Age: <%= dog.age %></p>
+      <p>£ <%= dog.price %> per hour</p>
+    </div>
+    <div class="card-buttons">
+      <div class="button">
+        <%= link_to "Book #{dog.name}", dog_path(dog), class: "btn btn-primary" %><hr>
+      </div>
+    </div>
+  </div>
+    <% end  %>
+    <div class="map">
+      <img src="https://www.google.com/maps/vt/data=_M9kHQjO8c_SsnxTn5ayZSMfVIpjqYU2DdM2wFQROVXPNp1tomTSIe2dA9qTko0I2aXsBB6hoFGHMGCQ0F4J8WHdXkXZxnQfwD-DT84zK-iS2EZUc5txl9_AG9BFKWV9mz4HOfHls9dXIgTP6XUsezNOQ00tZA3r" alt="map">
+    </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright"><%= link_to "Home", root_path %><i class="fa fa-paw" style="font-size:25px;"></i>
   </div>
 </div>
 
-<%# <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div> %>
+<!-- Button trigger modal -->
 
-  <div class="container"></div>
-    <% @dogs.each do |dog| %>
-      <div class="card-trip">
-        <%= image_tag 'susi.jpg', alt: 'Susi'%>
-        <div class="card-product-infos">
-          <h2><%=dog.name%></h2>
-          <p>Breed: <%= dog.breed %></p>
-          <p>Age: <%= dog.age %></p>
-          <p>£ <%= dog.price %> per hour</p>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{dog.id}" %>>
-            <%='More info'%>
-          </button>
-        </div>
-      </div>
-  </div>
+<!-- Modal -->
 
-
-    <!-- Modal -->
-    <div class="modal fade" id=<%= "dog-modal-#{dog.id}" %> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby=<%= "staticBackdropLabel-#{dog.id}" %> aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id=<%= "staticBackdropLabel-#{dog.id}" %>><%=dog.name%></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="card-trip">
-              <%= image_tag 'susi.jpg', alt: 'Susi'%>
-              <div class="card-product-infos">
-                <h2><%=dog.name%></h2>
-                  <p>Owner: <%= dog.user.first_name  %></p>
-                  <p>Breed: <%= dog.breed %></p>
-                  <p>Age: <%= dog.age %></p>
-                  <p>Character: <%= dog.description %></p>
-                  <p>£ <%= dog.price %> per hour</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <%= link_to "Book #{dog.name}", dog_path(dog), class: "btn btn-primary" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>

@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
          has_many :bookings
          has_many :dogs
-         has_many :reviews, through: :booking, dependent: :destroy
+        #  has_many :reviews, through: :booking, dependent: :destroy
          validates :first_name, presence: true
          validates :last_name, presence: true
 end
