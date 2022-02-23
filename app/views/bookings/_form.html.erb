@@ -1,0 +1,88 @@
+<%#= form_for (@booking) do |f| %>
+<!--    <%# <%= render 'shared/errorbooking_messages' %> %>-->
+      <%#= f.label :booking %>
+<%#= f.text_field :, data:{ provide:'datepicker' } %>
+
+      <%#= f.label :dog_name %>
+      <%#= f.text_field :dog_name, class: 'form-control' %>
+
+      <%#= f.label :dog_address %>
+      <%#= f.text_field :dog_address, class: 'form-control' %>
+
+  <%= form_with url: "/dogs/:dog_id/bookings", method: :post do |form| %>
+    <%= form.label :dog_id, @dog_id %>
+    <%= form.date_field :pick_up %>
+    <%= form.date_field :drop_off %>
+    <%= form.label :location, "Location:" %>
+
+    <%= form.text_field :location %>
+
+    <%= form.submit "Book" %>
+  <% end %>
+
+
+
+
+  <!--<h1>Bookings</h1>-->
+<%#= form_for [@dog, @booking] do |f| %>
+  <%# if @booking.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>-->
+
+<!--      <ul>-->
+        <%# @booking.errors.full_messages.each do |msg| %>
+<!--          <li><%#= msg %></li>-->
+        <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+<!--  <div class='field'>-->
+<!--    <%#= f.label :pickup_time %><br>-->
+<!--    <div class='input-group date' id='datetimepicker1'>-->
+      <%#= f.text_field :pickup_time, id: 'datetimepicker1', class: "form-control" %>
+<!--      <span class="input-group-addon">-->
+<!--        <span class="glyphicon glyphicon-calendar"></span>-->
+<!--      </span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <br />-->
+<!--  <div class='field'>-->
+<!--    <%#= f.label :return_time %><br>-->
+<!--    <div class='input-group date' id='datetimepicker2'>-->
+      <%#= f.text_field :return_time,id: 'datetimepicker2', class: "form-control" %>
+<!--      <span class="input-group-addon">-->
+<!--        <span class="glyphicon glyphicon-calendar"></span>-->
+<!--      </span>-->
+<!--    </div>-->
+<!--  </div>-->
+  <%# if !current_user.try(:user?) %>
+<!--    <div class="field">-->
+<!--      <%#= f.label :dog_id %><br>-->
+<!--      <%#= f.select(:user_id, @users.collect { |user| [user.name, user.id] }) %><br>-->
+<!--    </div>-->
+  <%# end %>
+<!--  <br />-->
+<!--  <div class="actions">-->
+    <%#= f.submit %>
+<!--  </div>-->
+<%# end %>
+
+<!--<script type="text/javascript">-->
+<!--    $(function () {-->
+<!--        $('#datetimepicker1').datetimepicker({-->
+<!--            defaultDate: moment(),-->
+<!--            format: 'YYYY-MM-DD HH:mm'-->
+<!--        });-->
+<!--        $('#datetimepicker2').datetimepicker({-->
+<!--            useCurrent: false,-->
+<!--            format: 'YYYY/MM/DD HH:mm'-->
+<!--        });-->
+<!--        $("#datetimepicker1").on("dp.change", function (e) {-->
+<!--            $('#datetimepicker2').data("DateTimePicker").minDate(e.date);-->
+<!--        });-->
+<!--        $("#datetimepicker2").on("dp.change", function (e) {-->
+<!--            $('#datetimepicker1').data("DateTimePicker").maxDate(e.date);-->
+<!--        });-->
+<!--    });-->
+
+<!--</script>-->

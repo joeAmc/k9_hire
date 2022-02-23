@@ -38,11 +38,13 @@ puts "Creating 10 Dogs..."
 end
 puts 'Dog Seed Complete!'
 
-# puts "Creating 10 Bookings..."
-# 10.times do
-#   booking = Booking.create!(
-#     availability: Faker::Date.forward(days: 7),
-#     total_price: Faker::Commerce.price(range: 50..100.0, as_string: true)
-#   )
-# end
-# puts 'Booking Seed Complete!'
+puts "Creating 10 Bookings..."
+10.times do
+  booking = Booking.create!(
+    user: User.last,
+    dog: Dog.last,
+    availability: Faker::Date.forward(days: 7),
+    total_price: Faker::Commerce.price(range: 50..100.0, as_string: true)
+  )
+end
+puts 'Booking Seed Complete!'
