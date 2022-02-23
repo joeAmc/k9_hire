@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% @dogs.each do |dog| %>
   <h1><%=dog.name%></h1>
   <p>Breed: <%= dog.breed %></p>
@@ -34,7 +35,41 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <%= link_to "Book #{dog.name}", dog_path(dog), class: "btn btn-primary" %>
         </div>
+=======
+<div class="container">
+    <% @dogs.each do |dog| %>
+  <div class="dog-card">
+    <div class="image">
+      <%= image_tag "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*", alt: 'Dog', style: 'height:200px; width:auto'%>
+    </div>
+    <div class="card-info">
+      <h1><%=dog.name%></h1>
+      <p>Breed: <%= dog.breed %></p>
+      <p>Age: <%= dog.age %></p>
+      <p>£ <%= dog.price %> per hour</p>
+    </div>
+    <div class="card-buttons">
+      <div class="button">
+        <%= link_to "Book #{dog.name}", dog_path(dog), class: "btn btn-primary" %><hr>
+>>>>>>> ee321ee08f51fefd276b5a9788ccaaffd390c987
       </div>
     </div>
   </div>
-<% end %>
+    <% end  %>
+    <div class="map">
+      <img src="https://www.google.com/maps/vt/data=_M9kHQjO8c_SsnxTn5ayZSMfVIpjqYU2DdM2wFQROVXPNp1tomTSIe2dA9qTko0I2aXsBB6hoFGHMGCQ0F4J8WHdXkXZxnQfwD-DT84zK-iS2EZUc5txl9_AG9BFKWV9mz4HOfHls9dXIgTP6XUsezNOQ00tZA3r" alt="map">
+    </div>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright"><%= link_to "Home", root_path %><i class="fa fa-paw" style="font-size:25px;"></i>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->

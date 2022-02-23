@@ -1,8 +1,9 @@
 // Specific CSS for your home-page
 .topnav{
   text-align: center;
-  background-color: lightgrey;
+  background-color: #ffffff;
   padding:10px;
+  text-decoration: none;
 }
 .about{
   margin-right: 50px;
@@ -31,10 +32,13 @@
 .title h1{
   color:white;
   font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .title h3{
   color: white;
-  font-weight: bold;
+  font-weight:lighter;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 .form{
   text-align: center;
@@ -74,4 +78,38 @@
 .body{
   margin:0px;
   width:100px;
+}
+
+.btn-ghost {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
+
+.btn-gradient {
+  color: rgb(255, 255, 255);
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: linear-gradient(#ffffff, #ffffff);
+  transition: background 0.3s ease;
+  border: 1px solid #0F60C4;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(#147EFF, #0F67DA);
+  color: white;
+}
+
+.form-container{
+  margin-left: 50px;
+  margin-right: 50px;
 }

@@ -7,6 +7,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+<<<<<<< HEAD
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
@@ -89,3 +90,12 @@
     K9 Hire<i class="fa fa-paw" style="font-size:25px;"></i>
   </div>
 </div>
+=======
+  <h1><%=@dog.name%></h1>
+  <p>Owner: <%= @dog.user.first_name  %></p>
+  <p>Breed: <%= @dog.breed %></p>
+  <p>Age: <%= @dog.age %></p>
+  <p>Character: <%= @dog.description %></p>
+  <p>£ <%= @dog.price %> per hour</p>
+  <%= image_tag "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*", alt: 'Dog', style: 'height:200px; width:auto'%>
+>>>>>>> ee321ee08f51fefd276b5a9788ccaaffd390c987
