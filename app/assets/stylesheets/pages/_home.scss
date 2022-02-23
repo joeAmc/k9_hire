@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+.container{
+  padding-left: 0px;
+}
+
 .topnav{
   text-align: center;
   background-color: lightgrey;
@@ -22,11 +26,12 @@
   width: 60px;
 }
 .title{
-  background-image: url("https://www.outsideonline.com/wp-content/uploads/2018/12/10/running-dog-breeds_h.jpg");
+  background-image: image_tag("dog.jp");
   padding:150px 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 .title h1{
   color:white;
