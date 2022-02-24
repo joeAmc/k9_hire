@@ -150,8 +150,15 @@ puts "Creating 10 Users..."
 end
 puts 'User Seed Complete!'
 
+locations = [
+  "14 Church Lane, London, N48 1OA", "9801 Main Road, London, N18 7ZX", "80 Church Street, London, SE69 8NU",
+  "9176 Church Street, London, WC65 8BI", "13 Kings Road, London, SE03 8AK", "2 West Street, London, N86 3ZE",
+  "87 Station Road, London, EC23 7KG", "1 Victoria Road, London, EC05 7LS", "84 Green Lane, London, SE68 3WP",
+  "333 The Avenue, London, WC86 2WQ"
+]
+
 puts "Creating 10 Dogs..."
-10.times do
+locations.each do |location|
   dog = Dog.create!(
     name: Faker::Creature::Dog.name,
     breed: Faker::Creature::Dog.breed,
@@ -172,3 +179,5 @@ puts 'Dog Seed Complete!'
 #   )
 # end
 # puts 'Booking Seed Complete!'
+
+# Faker::Address.full_address
