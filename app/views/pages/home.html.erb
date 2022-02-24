@@ -1,16 +1,4 @@
 
-<head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    <div class="topnav">
-      <i class="fa fa-paw" style="font-size:25px;"></i>
-      <a class="btn btn-ghost" href="#">About Us</a>
-      <a class="btn btn-ghost" href="#">Sign up your K9</a>
-      <a href="#signUp"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-ghost"%></a>
-      <a href="#login"><%= link_to "Login", new_user_session_path, class: "btn btn-ghost"%></a>
-    </div>
-
 <%#
     <div class="title">
       <h1 style="text-align:right; margin-right:10px;">K9-Hire</h1>
@@ -29,19 +17,16 @@
     <div class="banner-text">
       <h1>K9-Hire</h1>
       <h3>Love dogs? But can't own a dog?</h3>
-      <h3>Rent a dog! </h3>
-       <form class="form" style="text-align:right;">
-        <input type="search" id="query" name="q" placeholder="Search dogs via city.."
-        aria-label="Search through site content">
-        <%= link_to "Search", dogs_path, class: "btn btn-primary"%>
-        </form>
+      <h3>Rent a dog! </h3><br>
+      <%= form_tag dogs_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a Breed"%><br>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
-
-
-
-
-
 
     <div class="home-cards-container">
       <div class="card">
@@ -66,5 +51,3 @@
         </div>
       </div>
     </div>
-
-</body>

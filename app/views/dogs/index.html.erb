@@ -1,4 +1,7 @@
 <div class="container">
+    <% if @dogs.count == 0 %>
+    <h4><%= "Sorry we couldn't find any dogs matching your search!" %></h4>
+    <% end %>
     <% @dogs.each do |dog| %>
   <div class="dog-card">
     <div class="image">
