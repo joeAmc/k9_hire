@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
   before_action :find_dog, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new]
 
   def index
     @dogs = Dog.all
@@ -20,13 +21,12 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
-    @user = current_user
-    @dog.user_id = @user
+    @dog.user = current_user
 
     if @dog.save
       redirect_to dog_path(@dog), notice: '🐶 Your dog has been added! 🐶'
     else
-      render root_path
+      render :new
     end
   end
 
@@ -54,6 +54,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :age, :description, :price, :location)
+    params.require(:dog).permit(:name, :breed, :age, :description, :price, :location, photos: [])
   end
 end
