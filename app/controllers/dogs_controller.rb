@@ -3,7 +3,7 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
-    @markers = @dogs.geocoded.map do |dog|{
+    @markers = @dogs.geocoded.map do |dog| {
       lat: dog.latitude,
       lng: dog.longitude,
       index: render_to_string(locals: { dog: dog.location })
@@ -54,6 +54,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :age, :description, :price, :location)
+    params.require(:dog).permit(:name, :breed, :age, :description, :price, :location, photos: [])
   end
 end
