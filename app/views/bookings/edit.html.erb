@@ -1,1 +1,7 @@
-<h1>hello edit</h1>
+<h1>Edit the details of your booking:</h1>
+       <%= simple_form_for [@booking] do |f| %>
+           <%= f.date_field :pick_up, as: :string %>
+           <%= f.date_field :drop_off, as: :string %>
+            <span style="font-weight: normal; padding: 20px;font-size: 1.3rem;"> £<%= @dog.price %>/day </span>
+           <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>

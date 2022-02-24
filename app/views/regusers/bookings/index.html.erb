@@ -1,0 +1,115 @@
+<div>
+  <ul>
+    <% if @future_bookings.present? %>
+    <li>
+      <a>Upcoming Bookings</a>
+    </li>
+    <% end %>
+    <% if @past_bookings.present? %>
+    <li>
+      <a>Past Bookings</a>
+    </li>
+    <% end %>
+    <% if @dogs.present? %>
+    <li>
+      <a>My Dogs</a>
+    </li>
+    <% end %>
+    <% if @owner_bookings.present? %>
+    <li>
+      <a>My Dog Bookings</a>
+    </li>
+    <% end %>
+    <li>
+      <a>Add Dog</a>
+    </li>
+  </ul>
+  <div>
+    <div>
+      <% @future_bookings.each do |booking| %>
+        <div>
+          <%# <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %> %>
+          <div>
+            <div>
+              <h2>Your booking with <%= booking.dog.name %> the <%= booking.dog.breed %></h2>
+              <p><strong>Start date:</strong> <%= booking.pick_up %></p>
+              <p><strong>End date:</strong> <%= booking.drop_off %></p>
+              <p><strong>Total fee:</strong> $<%= booking.total_price %>0</p>
+            </div>
+            <div>
+              %<%= link_to 'View booking', dog_booking_path(booking)%>
+              <br>
+              <%# <%= link_to 'Edit this booking', edit_dog_booking_path(booking) %>
+              <br>
+              <%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <% @past_bookings.each do |booking| %>
+        <div>
+          <%# <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %> %>
+          <div>
+            <div>
+              <h2>Your booking with <%= booking.dog.name %> the <%= booking.dog.breed %></h2>
+              <p><strong>Start date:</strong> <%= booking.pick_up %></p>
+              <p><strong>End date:</strong> <%= booking.drop_off %></p>
+              <p><strong>Total fee:</strong> $<%= booking.total_price %>0</p>
+            </div>
+            <div>
+              <%= link_to 'View booking', dog_booking_path(booking) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <% @dogs.each do |dog| %>
+        <div>
+          <%# <%= cl_image_tag dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %> %>
+          <div>
+            <div>
+              <h2><%= dog.name %> the <%= dog.breed %></h2>
+              <p><strong>Breed:</strong> <%= animal.breed %></p>
+              <p><strong>Age:</strong> <%= dog.age %></p>
+            </div>
+            <div>
+              <%= link_to 'View dog', dog_path(dog) %>
+              <br>
+              <%= link_to 'Edit dog', edit_dog_path(dog) %>
+              <br>
+              <%= link_to 'Delete dog', dog_path(dog), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <% @owner_bookings.each do |booking| %>
+        <div>
+          <%# <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %> %>
+          <div>
+            <div>
+              <h2>Booking with <%= booking.dog.name %> the <%= booking.dog.breed %> for <%= booking.user.email %></h2>
+              <p><strong>Start date:</strong> <%= booking.pick_up %></p>
+              <p><strong>End date:</strong> <%= booking.drop_off %></p>
+              <p><strong>Total fee:</strong> $<%= booking.total_price %>0</p>
+            </div>
+            <div>
+              <%= link_to 'View booking', dog_booking_path(booking) %>
+              <br>
+              <%= link_to 'Edit booking', edit_dog_booking_path(booking) %>
+              <br>
+              <%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div>
+      <%# <%= render 'dogs/show' %> %>
+    </div>
+  </div>
+</div>
