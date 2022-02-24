@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
   before_action :find_dog, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new]
 
   def index
     @dogs = Dog.all
@@ -8,10 +9,11 @@ class DogsController < ApplicationController
       else
         @dogs = Dog.all
       end
-    @markers = @dogs.geocoded.map do |dog|{
+    
+    @markers = @dogs.map do |dog|{
       lat: dog.latitude,
       lng: dog.longitude,
-      index: render_to_string(locals: { dog: dog.location })
+      index: render_to_string(partial: "dogs_window", locals: { dog: dog.location })
     }
     end
   end
@@ -25,13 +27,12 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
-    @user = current_user
-    @dog.user_id = @user
+    @dog.user = current_user
 
     if @dog.save
       redirect_to dog_path(@dog), notice: '🐶 Your dog has been added! 🐶'
     else
-      render root_path
+      render :new
     end
   end
 
@@ -59,6 +60,6 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:name, :breed, :age, :description, :price, :location)
+    params.require(:dog).permit(:name, :breed, :age, :description, :price, :location, photos: [])
   end
 end

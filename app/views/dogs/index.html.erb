@@ -19,13 +19,32 @@
       </div>
     </div>
   </div>
-    <% end  %>
-    <div class="map">
-      <img src="https://www.google.com/maps/vt/data=_M9kHQjO8c_SsnxTn5ayZSMfVIpjqYU2DdM2wFQROVXPNp1tomTSIe2dA9qTko0I2aXsBB6hoFGHMGCQ0F4J8WHdXkXZxnQfwD-DT84zK-iS2EZUc5txl9_AG9BFKWV9mz4HOfHls9dXIgTP6XUsezNOQ00tZA3r" alt="map">
+</div>
+<div class="d-flex">
+    <div class="container">
+        <% @dogs.each do |dog| %>
+      <div class="dog-card">
+        <div class="image">
+          <%=image_tag "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*", alt: 'Dog', style: 'height:200px; width:auto'%>
+        </div>
+        <div class="card-info">
+          <h1><%=dog.name%></h1>
+          <p>Breed: <%= dog.breed %></p>
+          <p>Age: <%= dog.age %></p>
+          <p>£ <%= dog.price %> per hour</p>
+        </div>
+        <div class="card-buttons">
+          <div class="button">
+            <%= link_to "More info on #{dog.name}", dog_path(dog), class: "btn btn-primary" %><hr>
+          </div>
+        </div>
+      </div>
+        <% end  %>
+    </div>
+    <div style="width: 100%; height: 100vh; position:sticky;"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 </div>
 <%= render "shared/footer" %>
-
-<!-- Button trigger modal -->
-
-<!-- Modal -->
