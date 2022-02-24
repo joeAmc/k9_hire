@@ -1,8 +1,8 @@
 
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <div class="container" >
+</head>
+<body>
     <div class="topnav">
       <i class="fa fa-paw" style="font-size:25px;"></i>
       <a class="btn btn-ghost" href="#">About Us</a>
@@ -10,6 +10,8 @@
       <a href="#signUp"><%= link_to "Sign up", new_user_registration_path, class: "btn btn-ghost"%></a>
       <a href="#login"><%= link_to "Login", new_user_session_path, class: "btn btn-ghost"%></a>
     </div>
+
+<%#
     <div class="title">
       <h1 style="text-align:right; margin-right:10px;">K9-Hire</h1>
 
@@ -19,54 +21,50 @@
         <input type="search" id="query" name="q" placeholder="Search dogs via city.."
         aria-label="Search through site content">
         <%= link_to "Search", dogs_path, class: "btn btn-gradient"%>
-      </form>
+      <%# </form>
     </div>
-    <div class="cards-container">
-      <div class="card-column">
-              <div class="card">
-                  <img src="GNktAty14Y=/1333x1000/smart/filters:no_upscale()/breed_profile_germansheperd_1118000_hero_2536-6dc4ce05871945b8a894bd80c0ecc7f1.jpg" alt="Avatar" style="width:100%">
-                  <div class="header-4">
-                    <h4><b>Mika</b></h4>
-                    <a href="#" class="favourites"><i class="fa fa-heart"></i></a>
-                  </div>
-                <p>German Shepherd</p>
-                <p>Age: 6</p>
-                <p>London, Shoreditch</p>
-                <p><b>£9/hour</b><a href="#" class="ratings"><i class="fa fa-star"></i></p>
-                <div class="button">
-                  <a class="btn btn-primary">Hire K9</a>
-                </div>
-              </div>
-            <div class="card">
-              <img src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F546539.jpg" alt="Avatar" style="width:100%">
-              <div class="header-4">
-                <h4><b>Snowy</b></h4>
-                <a href="#" class="favourites"><i class="fa fa-heart"></i></a>
-              </div>
-              <p>White Wire Fox Terrier</p>
-              <p>Age: 9</p>
-              <p>London, Mile End</p>
-              <p><b>£8/hour</b><a href="#" class="ratings"><i class="fa fa-star"></i></p>
-              <div class="button">
-                <a class="btn btn-primary">Hire K9</a>
-              </div>
-            </div>
-          <div class="card">
-            <img src="https://dogtime.com/assets/uploads/gallery/border-terrier-dog-breed-pictures/8-face.jpg" alt="Avatar" style="width:100%">
-            <div class="header-4">
-              <h4><b>Susie</b></h4>
-              <a href="#" class="favourites"><i class="fa fa-heart"></i></a>
-            </div>
-            <p>Border Terrier</p>
-            <p>Age: 1</p>
-            <p>London, Embankment</p>
-            <p><b>£7/hour</b><a href="#" class="ratings"><i class="fa fa-star"></i></p>
-            <div class="button">
-              <a class="btn btn-primary">Hire K9</a>
-            </div>
-          </div>
+ %>
+
+ <div class="banner d-flex align-items-center flex-row-reverse">
+    <div class="banner-text">
+      <h1>K9-Hire</h1>
+      <h3>Love dogs? But can't own a dog?</h3>
+      <h3>Rent a dog! </h3>
+       <form class="form" style="text-align:right;">
+        <input type="search" id="query" name="q" placeholder="Search dogs via city.."
+        aria-label="Search through site content">
+        <%= link_to "Search", dogs_path, class: "btn btn-primary"%>
+        </form>
+    </div>
+  </div>
+
+
+
+
+
+
+    <div class="home-cards-container">
+      <div class="card">
+        <img src="https://www.akc.org/wp-content/uploads/2016/06/German-Shepherd-Dog-laying-down-in-the-backyard.jpeg" alt="Avatar">
+        <div class="header-4">
+          <h4><b>Mika</b></h4>
+          <a href="#" class="favourites"><i class="fa fa-paw" style="font-size:25px;"></i></a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445" alt="Avatar">
+        <div class="header-4">
+          <h4><b>Pam</b></h4>
+          <a href="#" class="favourites"><i class="fa fa-paw" style="font-size:25px;"></i></a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.waltham.com/sites/g/files/jydpyr1046/files/2020-09/golden%20retriever%20mix%20dog%20walking%20in%20the%20forest.jpg" alt="Avatar  ">
+        <div class="header-4">
+          <h4><b>Dave</b></h4>
+          <a href="#" class="favourites"><i class="fa fa-paw" style="font-size:25px;"></i></a>
         </div>
       </div>
     </div>
-  </div>
+
 </body>

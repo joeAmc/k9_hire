@@ -1,0 +1,40 @@
+.banner {
+  background-image: image-url('banner.png');
+  // background-size: 100% auto;
+  background-size: cover;
+  width: 100vw;
+  height: 80vh;
+  margin-bottom: 32px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: end;
+  position: relative;
+}
+
+// .banner {
+//   background-size: cover;
+//   background-position: center;
+//   padding: 150px 0;
+// }
+
+.banner h1{
+  color: white;
+  font-size: 72px;
+  font-weight: bold;
+  font-family: 'Arimo', sans-serif;
+  margin-bottom: 30px;
+}
+
+.banner h3{
+  color: rgb(231, 231, 230);
+  font-size: 38px;
+  font-weight: bold;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 400;
+}
+
+.banner-text {
+  margin-right: 50px;
+  text-align: end;
+  position: absolute;
+
+}

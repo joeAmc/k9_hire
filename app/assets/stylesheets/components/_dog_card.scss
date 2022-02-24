@@ -8,6 +8,20 @@
   display:flex;
   justify-content: space-evenly;
   margin-top:15px;
+  // margin: 0 auto;
+}
+
+.dog-card-show{
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  width: 50%;
+  padding: 10px;
+  display:flex;
+  justify-content: space-evenly;
+  margin-top:15px;
+  margin: 0 auto;
 }
 .card-buttons{
   .button{
@@ -64,4 +78,8 @@
   text-decoration: none;
   margin-right: 16px;
   color: #744343;
+}
+
+.card-info {
+  margin-left: 16px;
 }
