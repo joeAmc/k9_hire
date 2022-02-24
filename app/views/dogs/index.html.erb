@@ -1,37 +1,28 @@
-<% @dogs.each do |dog| %>
-  <h1><%=dog.name%></h1>
-  <p>Breed: <%= dog.breed %></p>
-  <p>Age: <%= dog.age %></p>
-  <p>£ <%= dog.price %> per hour</p>
-    <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
-
-
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{dog.id}"%>>
-    <%='More info'%>
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id=<%= "dog-modal-#{dog.id}" %> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby=<%= "staticBackdropLabel-#{dog.id}" %> aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id=<%= "staticBackdropLabel-#{dog.id}" %>><%=dog.name%></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-           <p>Owner: <%= dog.user.first_name  %></p>
-            <p>Breed: <%= dog.breed %></p>
-            <p>Age: <%= dog.age %></p>
-            <p>Character: <%= dog.description %></p>
-            <p>£ <%= dog.price %> per hour</p>
-            <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <%= link_to "Book #{dog.name}", dog_path(dog), class: "btn btn-primary" %>
-        </div>
+<div class="container">
+    <% @dogs.each do |dog| %>
+  <div class="dog-card">
+    <div class="image">
+      <%= image_tag "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*", alt: 'Dog', style: 'height:200px; width:auto'%>
+    </div>
+    <div class="card-info">
+      <h1><%=dog.name%></h1>
+      <p>Breed: <%= dog.breed %></p>
+      <p>Age: <%= dog.age %></p>
+      <p>£ <%= dog.price %> per hour</p>
+    </div>
+    <div class="card-buttons">
+      <div class="button">
+        <%= link_to "More info on #{dog.name}", dog_path(dog), class: "btn btn-primary" %><hr>
       </div>
     </div>
   </div>
-<% end %>
+    <% end  %>
+    <div class="map">
+      <img src="https://www.google.com/maps/vt/data=_M9kHQjO8c_SsnxTn5ayZSMfVIpjqYU2DdM2wFQROVXPNp1tomTSIe2dA9qTko0I2aXsBB6hoFGHMGCQ0F4J8WHdXkXZxnQfwD-DT84zK-iS2EZUc5txl9_AG9BFKWV9mz4HOfHls9dXIgTP6XUsezNOQ00tZA3r" alt="map">
+    </div>
+</div>
+<%= render "shared/footer" %>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->

@@ -1,0 +1,77 @@
+.card-trip {
+  // overflow: hidden;
+  //   background: white;
+  //   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  //   width: 82%;
+  //   text-align: center;
+  //   height: 400px;
+  margin: auto;
+  width: 70%;
+  text-align: center;
+  height: 683px;
+  margin-top:55px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 150px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.btn {
+  margin-bottom: 20px;
+}
+.card-trip-infos{
+  margin: auto;
+  width: 50%;
+  // display: flex;
+  // justify-items: center;
+  text-align: center;
+}
+.images {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.card-trip h2 {
+  font-weight: bold;
+  margin: 1px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 11px;
+}
+  .card-trip p {
+    font-size:20px;
+    opacity: .7;
+    margin-bottom: 4px;
+}
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.card-trip-infos .paw {
+  position: absolute;
+  align-items: flex-end;
+  // margin-left: 0px;
+  // margin-right: 0px;
+  // margin-top: 0px;
+  // margin-bottom: 0px;
+  // font-size: 10px;
+}
