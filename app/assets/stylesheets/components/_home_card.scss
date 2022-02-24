@@ -1,0 +1,22 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width:22%;
+  margin-top:20px;
+  background-color: white;
+  width: 18rem;
+  padding:10px;
+}
+
+.card img{
+  height:250px;
+  width:200px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+
+}
