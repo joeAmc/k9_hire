@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center justify-content-center">
+  <div class="text-start">
+    <div class="form-list">
+      <%= simple_form_for [@user, @dog] do |f| %>
+        <%=f.input :name %>
+        <%=f.input :breed %>
+        <%=f.input :age %>
+        <%=f.input :price %>
+        <%=f.input :location %>
+        <%= f.input :photo, as: :file { :multiple => true } %>
+        <%# <%= f.input :photo, as: :file %>
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', root_path, class: 'btn btn-outline-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<h1> TEST </h1>

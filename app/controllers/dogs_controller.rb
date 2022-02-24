@@ -1,8 +1,14 @@
 class DogsController < ApplicationController
-  before_action :find_dog, only: [ :show, :edit]
+  before_action :find_dog, only: [:show, :edit, :update]
 
   def index
     @dogs = Dog.all
+    @markers = @dogs.geocoded.map do |dog|{
+      lat: dog.latitude,
+      lng: dog.longitude,
+      index: render_to_string(locals: { dog: dog.location })
+    }
+    end
   end
 
   def show
@@ -12,24 +18,34 @@ class DogsController < ApplicationController
     @dog = Dog.new
   end
 
-  # def create
-  #   if @dog.save
-  #     redirect_to dog_path(@dog), notice: '🐶 Your dog has been added! 🐶'
-  #   else
-  #     render 'dogs/show'
-  #   end
-  # end
+  def create
+    @dog = Dog.new(dog_params)
+    @user = current_user
+    @dog.user_id = @user
 
-  # def edit
-  # end
+    if @dog.save
+      redirect_to dog_path(@dog), notice: '🐶 Your dog has been added! 🐶'
+    else
+      render root_path
+    end
+  end
 
-  # def update
-  #   if @dog.update(dog_params)
-  #     redirect_to @dog, notice: '🐶 Your dog info has updated! 🐶'
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def edit
+  end
+
+  def update
+    if @dog.update(dog_params)
+      redirect_to @dog, notice: '🐶 Your dog info has updated! 🐶'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @dog = dog.find(params[:id])
+    @dog.destroy
+    redirect_to root_path
+  end
 
   private
 
@@ -40,5 +56,4 @@ class DogsController < ApplicationController
   def dog_params
     params.require(:dog).permit(:name, :breed, :age, :description, :price, :location)
   end
-
 end
