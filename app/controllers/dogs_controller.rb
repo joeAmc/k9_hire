@@ -3,6 +3,12 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
+    @markers = @dogs.map do |dog|{
+      lat: dog.latitude,
+      lng: dog.longitude,
+      index: render_to_string(partial: "dogs_window", locals: { dog: dog.location })
+    }
+    end
   end
 
   def show
