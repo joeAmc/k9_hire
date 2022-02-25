@@ -7,13 +7,14 @@ class DogsController < ApplicationController
       if params[:query].present?
         @dogs = Dog.where("breed ILIKE ?", "%#{params[:query].downcase}%")
       else
-        @dogs = Dog.all
+        @dogs = Dog.geocoded
       end
-    
+
     @markers = @dogs.map do |dog|{
       lat: dog.latitude,
       lng: dog.longitude,
-      index: render_to_string(partial: "dogs_window", locals: { dog: dog.location })
+      dogs_window: render_to_string(partial: "dogs_window", locals: { dog: dog.location}),
+      image_url: helpers.asset_url("paw.png")
     }
     end
   end
