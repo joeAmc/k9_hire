@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
     @pick_up = Date.parse(params[:booking][:pick_up])
     @drop_off = Date.parse(params[:booking][:drop_off])
     @duration = (@drop_off - @pick_up).to_i
-    @booking.total_price = @booking.dog.daily_rate * @duration
+    @booking.total_price = @booking.dog.price * @duration
     if @booking.update(booking_params)
       redirect_to booking_path(@booking)
     else
@@ -51,9 +51,12 @@ class BookingsController < ApplicationController
 
   def destroy
     if @booking.drop_off > Date.today && @booking.destroy
-      redirect_to booking_path(@booking)
+      # redirect_to booking_path(@booking)
+      redirect_to dashboard_path
     else
-      render 'bookings/index'
+      # render 'bookings/index'
+      redirect_to dashboard_path
+
     end
   end
 
