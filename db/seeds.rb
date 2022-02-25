@@ -11,7 +11,8 @@ require 'faker'
 Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
-addresses = ["9 Smalldale Road, Birmingham, B42 2RX",
+addresses = [
+  "9 Smalldale Road, Birmingham, B42 2RX",
   "82 Grammar School Road, Brigg, DN20 8AY",
   "1A Queens Road, Annitsford, NE23 7RA",
   "4 Morley Road, Romford, RM6 6XB",
@@ -137,10 +138,11 @@ addresses = ["9 Smalldale Road, Birmingham, B42 2RX",
   "14 Swancote Green, Bracknell, RG12 7BJ",
   "30 Commercial Street, Middlesbrough, TS2 1JW",
   "Oakdene, Dunmow Road, Rayne, CM77 6SF",
-  "7A High Street, Eccleshall, ST21 6BW"]
+  "7A High Street, Eccleshall, ST21 6BW"
+]
 
-puts "Creating 10 Users..."
-10.times do
+puts "Creating 100 Users..."
+100.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -154,30 +156,64 @@ locations = [
   "14 Church Lane, London, N48 1OA", "9801 Main Road, London, N18 7ZX", "80 Church Street, London, SE69 8NU",
   "9176 Church Street, London, WC65 8BI", "13 Kings Road, London, SE03 8AK", "2 West Street, London, N86 3ZE",
   "87 Station Road, London, EC23 7KG", "1 Victoria Road, London, EC05 7LS", "84 Green Lane, London, SE68 3WP",
-  "333 The Avenue, London, WC86 2WQ"
+  "333 The Avenue, London, WC86 2WQ",
+  "168 Timken Way North, Duston, NN5 6WF",
+  "44 Blackberry Walk, Lychpit, RG24 8SN",
+  "8 Priory Road, Chilton Polden, TA7 9EH",
+  "Westwynds, Old Mains Lane, Poulton-Le-Fylde, FY6 7LA",
+  "28 Square Road, Todmorden, OL14 7SU",
+  "584 Malling Road, Kings Hill, ME19 4PU",
+  "2 Jordan Orchard, Buckfastleigh, TQ11 0NG",
+  "Old Forge, Stiffords Bridge, Cradley, WR13 5NN",
+  "9 Ball Walk, Hyde, SK14 3PY",
+  "1 Milburn Court, Brampton, CA8 1NE",
+  "7 St Michaels Close, Erith, DA18 4DY",
+  "9 Garden Court, Hanworth Road, Hampton, TW12 3EH",
+  "8 George Street, Brunswick Village, NE13 7ED",
+  "4 School Road, Hurst, RG10 0DR",
+  "117 Yonder Street, Ottery St Mary, EX11 1HH",
+  "17 Dunveth Business Park, Wadebridge, PL27 7FE",
+  "5 Suddards Fold, Bradford, BD7 3LQ",
+  "146 Park Road, Westhoughton, BL5 3DD",
+  "8 Wyedale Close, Buxton, SK17 9RF",
+  "Flat 21, Maltings Court, Hoe Lane, Ware, SG12 9LS",
+  "18 Ripley Drive, Harrogate, HG1 3JD",
+  "41 Hays Mews, London, W1J 5QA",
+  "52 St Albans Drive, Stevenage, SG1 4RU",
+  "Fields Cottage, Field Lane, Bishops Castle, SY9 5AG",
+  "3 Whinmoor Walk, Manchester, M40 5NX",
+  "The Qube, Windward Way, Middlesbrough, TS2 1QG",
+  "65 Ashburnham Road, Southend-On-Sea, SS1 1QE",
+  "56A London Road, Tonbridge, TN10 3DE",
+  "49 Glentworth Gardens, Wolverhampton, WV6 0SH",
+  "16 Tarrants Hill, Hungerford, RG17 0BL",
+  "20 Lagoon Road, Bognor Regis, PO21 4TJ",
+  "24 Waterloo Street, Cheltenham, GL51 9BT",
+  "Church Farm House, Winsley, BA15 2JH",
+  "21 Stanmore Gardens, Richmond, TW9 2HN",
+  "69 Teddington Grove, Perry Barr, B42 1RG",
+  "36 Rydal Avenue, Fleetwood, FY7 7JU",
+  "Devon House, Water Street, Menai Bridge, LL59 5DD",
+  "26 Algarth Road, Pocklington, YO42 2HP",
+  "12 Bramble Gardens, Worcester, WR5 1SQ",
+  "132 Bolton Road, Turton, BL7 0AE",
+  "25 Wellfarm Close, Walton, L9 6GD",
+  "14 Swancote Green, Bracknell, RG12 7BJ",
+  "30 Commercial Street, Middlesbrough, TS2 1JW",
+  "Oakdene, Dunmow Road, Rayne, CM77 6SF",
+  "7A High Street, Eccleshall, ST21 6BW"
 ]
 
-puts "Creating 10 Dogs..."
+puts "Creating 100 Dogs..."
 locations.each do |location|
   dog = Dog.create!(
     name: Faker::Creature::Dog.name,
     breed: Faker::Creature::Dog.breed,
-    age: Faker::Number.number(digits: 2),
-    description: Faker::Lorem.sentences(number: 3),
-    price: Faker::Commerce.price(range: 10..50.0, as_string: true),
+    age: Faker::Number.within(range: 1..15),
+    description: Faker::Creature::Dog.meme_phrase,
+    price: Faker::Commerce.price(range: 5..30.0, as_string: true),
     location: addresses.sample,
     user: User.last
   )
 end
 puts 'Dog Seed Complete!'
-
-# puts "Creating 10 Bookings..."
-# 10.times do
-#   booking = Booking.create!(
-#     availability: Faker::Date.forward(days: 7),
-#     total_price: Faker::Commerce.price(range: 50..100.0, as_string: true)
-#   )
-# end
-# puts 'Booking Seed Complete!'
-
-# Faker::Address.full_address
