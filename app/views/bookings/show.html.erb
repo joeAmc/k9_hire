@@ -1,0 +1,30 @@
+    <%# <%= cl_image_tag @dog.photos[0].key %> %>
+      <h1>Your booking with <%= @dog.name %> the <%= @dog.breed %></h1>
+          <h2>Dog details:</h2>
+          <p>Name: <%= @dog.name %></p>
+          <p>Age: <%= @dog.age %></p>
+          <p>Gender: <%= @dog.breed %></p>
+          <p>Origin: <%= @dog.location %></p>
+          <p>Description: <%= @dog.description %></p>
+
+            <%= link_to "Return to my bookings", dashboard_path %>
+            <br>
+            <% if @booking.drop_off > Date.today %>
+              <%= link_to 'Edit this booking', edit_dog_booking_path(@booking) %>
+            <% end %>
+            <br>
+            <% if @booking.drop_off > Date.today %>
+              <%= link_to 'Delete this booking', booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
+          <br>
+          <br>
+          <div>
+            <p><strong>Start date:</strong> <%= @booking.pick_up %></p>
+            <p><strong>End date:</strong> <%= @booking.drop_off %></p>
+            <h2>Total fee: $<%= @booking.total_price %>0</h2>
+          </div>
+        </div>
+      </div>
+      <br>
+      <hr>

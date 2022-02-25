@@ -1,0 +1,26 @@
+  <%# <%= form_with url: "/dogs/:dog_id/bookings", method: :post do |form| %>
+    <%# <%= form.label :dog_id, @dog_id %>
+    <%# <%= form.date_field :pick_up %>
+     <%# <%= form.date_field :drop_off %>
+    <%# <%= form.label :location, "Location:" %>
+
+    <%# <%= form.text_field :location %>
+
+    <%# <%= form.submit "Book" %>
+  <%# <% end %>
+  <%# ("bookings", :html => { :style => 'display:inline' }) %>
+
+<%# <%= simple_form_for "booking" do |f| %>
+  <%# <%= f.input :dog %>
+  <%# <%= f.date_field :pick_up %>
+  <%# <%= f.date_field :drop_off %>
+  <%# <%= f.submit %>
+<%# <% end %>
+       <%= simple_form_for [@dog, @booking] do |f| %>
+           <%= f.label :Start %>
+           <%= f.date_field :pick_up, as: :string %>
+           <%= f.label :End %>
+           <%= f.date_field :drop_off, as: :string%>
+           <span style="font-weight: normal; padding: 20px;font-size: 1.3rem;"> £<%= @dog.price %>/day </span>
+           <%= f.submit "Submit" %>
+        <% end %>
