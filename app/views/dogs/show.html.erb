@@ -1,3 +1,7 @@
+
+<div class="dog-card-show mt-4">
+    <div class="image">
+
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%# <a class="navbar-brand" href="#"> %>
@@ -27,6 +31,7 @@
 
 <div class="dog-card-show">
   <div class="pic">
+
 
 <!-- Carousel -->
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -77,6 +82,24 @@
 
 <!-- Carousel -->
 
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <%# <div class="carousel-inner">
+    <% @dog.photos.each do |photo| %>
+      <%# <div class="carousel-item active <%= if image == @dog.photos[0] %>
+        <%# <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <%# </div>
+    <% end %>
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+
+
 
 
 
@@ -101,4 +124,3 @@
 </div>
 
 <!-- footer -->
-<%= render "shared/footer" %>
