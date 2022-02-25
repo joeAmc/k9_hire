@@ -17,7 +17,9 @@
   <%# <%= f.submit %>
 <%# <% end %>
        <%= simple_form_for [@dog, @booking] do |f| %>
+           <%= f.label :Start %>
            <%= f.date_field :pick_up, as: :string %>
+           <%= f.label :End %>
            <%= f.date_field :drop_off, as: :string%>
            <span style="font-weight: normal; padding: 20px;font-size: 1.3rem;"> £<%= @dog.price %>/day </span>
            <%= f.submit "Submit" %>

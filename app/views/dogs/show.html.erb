@@ -51,7 +51,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <% @dog.photos.each do |photo| %>
-      <div class="carousel-item active <%= if image == @dog.photos[0] %>">
+      <%# <div class="carousel-item active <%= if image == @dog.photos[0] %>"> %>
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       </div>
     <% end %>
@@ -90,23 +90,22 @@
             <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
         </div>
 
-        <div class="row">
-        <div class="col">
-        <%= simple_form_for [@dog, @booking] do |f| %>
-           <%= f.label :Start%>
-           <%= f.date_field :pick_up, as: :string %>
-           <%= f.label :End%>
+        <div>
+         <%= simple_form_for [@dog, @booking] do |f| %>
+            <%= f.label :Start%>
+            <%= f.date_field :pick_up, as: :string %>
+            <%= f.label :End%>
 
-           <%= f.date_field :drop_off, as: :string%>
-           <span style="font-weight: normal; padding: 20px;font-size: 1.3rem;"> £<%= @dog.price %>/day </span>
-           <%= f.submit "Submit", class: "btn btn-primary" %>
-        <% end %>
-        </div>
+            <%= f.date_field :drop_off, as: :string%>
+            <span style="font-weight: normal; padding: 20px;font-size: 1.3rem;"> £<%= @dog.price %>/day </span>
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+         <% end %>
+
         </div>
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <%= link_to "Book #{@dog.name}", dog_path(@dog), class: "btn btn-primary" %>
+          <%= link_to "Book #{@dog.name}", new_dog_booking_path(@dog), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
