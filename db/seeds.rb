@@ -139,8 +139,8 @@ addresses = ["9 Smalldale Road, Birmingham, B42 2RX",
   "Oakdene, Dunmow Road, Rayne, CM77 6SF",
   "7A High Street, Eccleshall, ST21 6BW"]
 
-puts "Creating 100 Users..."
-100.times do
+puts "Creating 20 Users..."
+20.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -260,14 +260,14 @@ locations = [
   "7A High Street, Eccleshall, ST21 6BW"
 ]
 
-puts "Creating 100 Dogs..."
+puts "Creating 20 Dogs..."
 locations.each do |location|
   dog = Dog.create!(
     name: Faker::Creature::Dog.name,
     breed: Faker::Creature::Dog.breed,
     age: Faker::Number.within(range: 1..15),
     description: Faker::Creature::Dog.meme_phrase,
-    price: Faker::Commerce.price(range: 3..30.0, as_string: true),
+    price: Faker::Commerce.price(range: 3..20.0, as_string: true),
     location: addresses.sample,
     user: User.last
   )
