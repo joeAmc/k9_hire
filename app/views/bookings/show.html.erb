@@ -1,4 +1,5 @@
     <%# <%= cl_image_tag @dog.photos[0].key %> %>
+    <div class="form" style="text-align: center; background-color:white;">
       <h1>Your booking with <%= @dog.name %> the <%= @dog.breed %></h1>
           <h2>Dog details:</h2>
           <p>Name: <%= @dog.name %></p>
@@ -10,7 +11,7 @@
             <%= link_to "Return to my bookings", dashboard_path %>
             <br>
             <% if @booking.drop_off > Date.today %>
-              <%= link_to 'Edit this booking', edit_dog_booking_path(@booking) %>
+              <%= link_to 'Edit this booking', edit_booking_path(@booking) %>
             <% end %>
             <br>
             <% if @booking.drop_off > Date.today %>
@@ -19,7 +20,7 @@
           </div>
           <br>
           <br>
-          <div>
+          <div style="text-align:center; background-color:white;">
             <p><strong>Start date:</strong> <%= @booking.pick_up %></p>
             <p><strong>End date:</strong> <%= @booking.drop_off %></p>
             <h2>Total fee: $<%= @booking.total_price %>0</h2>
@@ -28,3 +29,4 @@
       </div>
       <br>
       <hr>
+    </div>
