@@ -25,6 +25,7 @@ gem 'devise'
 gem 'faker'
 gem "geocoder"
 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'dotenv-rails', groups: [:development, :test]

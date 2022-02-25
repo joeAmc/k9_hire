@@ -1,4 +1,3 @@
-
 <div class="dog-card-show">
   <div class="pic">
 <!-- Carousel -->
@@ -20,8 +19,6 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-
-
   </div>
   <%# <%= cl_image_tag @dog.photos[0], height: 300, width: 400, crop: :fill %>
     <div class="dog-card-info">
@@ -39,26 +36,22 @@
     </div>
   </div>
 </div>
-
   <!-- Modal -->
 <div class="modal fade" id=<%= "dog-modal-#{@dog.id}" %> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby=<%= "staticBackdropLabel-#{@dog.id}" %> aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id=<%= "staticBackdropLabel-#{@dog.id}" %>><%= "You've booked #{@dog.name}!"%></h5>
+        <h5 class="modal-title" id=<%= "staticBackdropLabel-#{@dog.id}" %>><%= "Booking in Progress...."%></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h2><%= "Booking calendar coming soon!..."  %></h2>
-        <%= image_tag 'susi.jpg', alt: 'Susi', style: 'height:200px; width:auto'%>
+        <h2><%= "Booking #{@dog.name}"  %></h2>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <%= link_to "Book #{@dog.name}", dog_path(@dog), class: "btn btn-primary" %>
+        <%= link_to "Book #{@dog.name}", new_dog_booking_path(@dog), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
 </div>
-
-
 <!-- footer -->

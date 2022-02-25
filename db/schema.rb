@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2022_02_24_150049) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "dog_id", null: false
+    t.datetime "pick_up"
+    t.datetime "drop_off"
     t.index ["dog_id"], name: "index_bookings_on_dog_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
