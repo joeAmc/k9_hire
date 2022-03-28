@@ -141,15 +141,11 @@ addresses = [
   "7A High Street, Eccleshall, ST21 6BW"
 ]
 
-puts "Creating 20 Users..."
-20.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: '123456'
-  )
-end
+puts "Creating user..."
+
+user = User.create(first_name: 'test', last_name: 'test', email: 'test@test.com', password: '123456')
+user.save!
+
 puts 'User Seed Complete!'
 
 locations = [
@@ -218,16 +214,386 @@ locations = [
 ]
 
 
-puts "Creating 20 Dogs..."
-locations.each do |location|
-  dog = Dog.create!(
-    name: Faker::Creature::Dog.name,
-    breed: Faker::Creature::Dog.breed,
-    age: Faker::Number.within(range: 1..15),
-    description: Faker::Creature::Dog.meme_phrase,
-    price: Faker::Commerce.price(range: 3..20.0, as_string: true),
-    location: addresses.sample,
-    user: User.last
-  )
-end
+puts "Creating dogs..."
+
+file = URI.open('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2021/11/10093442/Pug-puppy-sitting-outdoors.jpg')
+file_two = URI.open('https://www.loveyourdog.com/wp-content/uploads/2020/12/Pug-Standing-on-Tree-Branch-900x500.jpg')
+file_three = URI.open('https://scratchandpatch.co.uk/wp-content/uploads/2020/09/pexels-amit-talwar-3813324-1024x683.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Nacho',
+  breed: 'Pug',
+  age: 5,
+  description: "Very friendly and relaxed pug. Likes going on 1 to 2 walks a day. Has a good appetite!",
+  price: 10,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+
+file = URI.open('https://www.allthingsdogs.com/wp-content/uploads/2019/08/Black-Pug.jpg')
+file_two = URI.open('https://live.staticflickr.com/78/166407398_1885ab77e9_h.jpg')
+file_three = URI.open('https://www.thegoodypet.com/wp-content/uploads/2022/02/black-pug-a-complete-guide-to-this-pug-breed.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Penelope',
+  breed: 'Pug',
+  age: 8,
+  description: "Super playful and friendly pug, happy with one big walk. Enjoys cuddles and snoozes",
+  price: 9,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+
+file = URI.open('https://i.pinimg.com/564x/34/9f/70/349f70d3708f09b7d90e857827ffbaf2.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/f5/85/64/f58564373a05e39a1cb9e49344d7b11b.jpg')
+file_three = URI.open('https://i.pinimg.com/736x/5a/18/8d/5a188d92bafa4d9c2e5c441f29effe41.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Linda',
+  breed: 'Pug',
+  age: 2,
+  description: "Young, happy and energitic pug. Super friendly with humans and other dogs. Likes to go on atleast two walks a day",
+  price: 7,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/9f/a8/cd/9fa8cde88e378795feeef79f4746167b.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/89/63/67/89636728772534a4a9e01cc074fbdb53.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/0d/8c/c1/0d8cc199f1ef16ebc64fa45e53a86902.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Susi',
+  breed: 'border Terrier ',
+  age: 1,
+  description: "Very energetic and super friendly border. Great with people and other dogs, needs 2 walks a day. Will be very relaxed at home",
+  price: 9,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+
+file = URI.open('https://i.pinimg.com/736x/8e/51/b3/8e51b3859141f8740ce20662f8625900.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/24/08/e7/2408e714a3d4bf35b042cfc721974a98.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/1b/93/4d/1b934d1449a35c8cf097887f4a18b33d.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Toast',
+  breed: 'border Terrier ',
+  age: 2,
+  description: "Very content and playful young terrier. Great walking companion, content to go on long or short walks. Very chilled at home",
+  price: 7,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/89/8e/2d/898e2dcb3da9b57e0d6d95c5b810dc2b.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/58/43/1f/58431f8cf66e762bb5abb373624735a3.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/85/03/61/8503618caf0742867417c4c1bc237b86.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Uri',
+  breed: 'border Terrier ',
+  age: 5,
+  description: "Mature and relaxed, but needs atleast one big walk a day. Great with new people, quit greedy, loves a snack!",
+  price: 7,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+
+file = URI.open('https://i.pinimg.com/564x/ae/84/f6/ae84f6161c1dd2448f30d8aa2fc36fd6.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/b6/c6/5c/b6c65c06621715affbcfb15232907309.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/89/d6/34/89d634d2072869c530e1c8b4e320552f.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Ronnie',
+  breed: 'Dachshund',
+  age: 3,
+  description: "Very cute and friendy sausage dog, likes to play and needs atleast one big walk a day",
+  price: 11,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/b4/15/ae/b415ae29b281460845b2f1d7baca6c1c.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/90/ba/c3/90bac32a93c590ab446bad3e6d6dfcc6.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/8b/40/11/8b401161aca814dc0b848f5f58fd5bb3.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Freya',
+  breed: 'Dachshund',
+  age: 6,
+  description: "Well behaved and friendly, great with kids and loves to play",
+  price: 10,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/59/35/ce/5935ced2ff3190d84b024f0052767392.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/c6/1b/06/c61b069dc869f9a0611ca6cb100ca7e9.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/05/0e/66/050e661eb4218f65d3661a109c56dacd.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Dave',
+  breed: 'Labrador',
+  age: 9,
+  description: "Super friendly and chilled, happy with only one or two short daily walks, loves an afternoon snooze and lots of dog treats",
+  price: 6,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/cf/8e/04/cf8e047c3628ff76ceaf6657af11e2da.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/38/41/62/384162945ebdc780bd9ec2e35c5c84d5.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/1d/47/1b/1d471bcbc897f5488ef3c8e10f04ba92.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Stella',
+  breed: 'Labrador',
+  age: 1,
+  description: "Playful and friendly, young lab. Loves to meet new people and other dogs",
+  price: 12,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+
+file = URI.open('https://i.pinimg.com/564x/d2/5e/e8/d25ee8a822560f22e5bc05334d6dfc7f.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/01/a3/d0/01a3d02a2e2da98e4d2b2b97c0e31144.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/cd/fd/54/cdfd54d9e6a6e46c4e94457ae46d191a.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Kai',
+  breed: 'Shiba Inu',
+  age: 3,
+  description: "Confident and alert, but playful. Can be a bit wary of other dogs, but is overall very friendly",
+  price: 9,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/736x/33/69/fe/3369fe2996d8c5c0dbd47ac714829feb.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/71/01/c4/7101c4221720cde8ecac1312e71472ea.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/35/c4/d3/35c4d34e0d1880cf70b174d91a749570.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Bella',
+  breed: 'Shiba Inu',
+  age: 5,
+  description: "Very friendly and energetic, requires two 30 minute plus walks and day and will be relaxed in between, very cuddly",
+  price: 11,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/736x/33/69/fe/3369fe2996d8c5c0dbd47ac714829feb.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/71/01/c4/7101c4221720cde8ecac1312e71472ea.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/35/c4/d3/35c4d34e0d1880cf70b174d91a749570.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Kiko',
+  breed: 'Shiba Inu',
+  age: 13,
+  description: "Super chilled older Shibu Inu. Mature and very friendly with all people and other dogs. Needs one walk a day",
+  price: 7,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/9d/23/a8/9d23a8efb6a0893254841d67ac231c66.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/57/48/c6/5748c6f1af2552255171bdd79ff65cd2.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/7d/ca/aa/7dcaaac25ade0a8d93d68369d479ace8.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Jill',
+  breed: 'Poodle',
+  age: 4,
+  description: "Very friendly and content poodle. Likes one big and one small walk a day, loves playing catch!",
+  price: 13,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/87/77/ec/8777ec7e1563c98cf0932c1f1a6d0d73.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/e0/76/70/e076705145a6ef5581154625925b8713.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/4b/b3/fa/4bb3fad0011edd9394ceb14b078c81c5.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Pappy',
+  breed: 'Poodle',
+  age: 2,
+  description: "Super happy and confident poodle, loves to play and meet new dogs and people. Ideally has two big walks a day",
+  price: 9,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/68/9c/d4/689cd4eadafb6a67f066c9f7a0b03b9d.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/6d/b2/01/6db20180469ef699775f740c9f30507c.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/c9/4f/e0/c94fe042f350b489fd862deafeba5972.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Twingo',
+  breed: 'Poodle',
+  age: 5,
+  description: "Very relaxed and friendly. Happy for two small walks a day, but does like to play at home. Good with kids",
+  price: 12,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/f7/cf/c6/f7cfc68addf4c4f051530f1961adf8b8.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/0e/ce/dc/0ecedcc96116d308b33063f23bee23c8.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/f4/ee/ad/f4eead3770aecb8f01f1c8381dadffee.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Bruce',
+  breed: 'German Shepherd',
+  age: 7,
+  description: "Generally very friendly and loving with other dogs but does have his moments, suited to experienced dog owners, happy with one big walk a day",
+  price: 12,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/0b/25/d9/0b25d9d1517ed3c38db33217affe0639.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/62/fc/0c/62fc0c4a1a4dba6781d9dbd5f878b7e3.jpg')
+file_three = URI.open('https://i.pinimg.com/736x/03/38/47/033847eea036d1c06e0c7f787de2fcd9.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Mae',
+  breed: 'German Shepherd',
+  age: 3,
+  description: "A big softie, very cuddly and friendly. Very submissive and approachable, loves to play. Needs two walks a day minimum",
+  price: 8,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/bd/00/6f/bd006fcadf06f7404e0facc2121877b7.jpg')
+file_two = URI.open('https://i.pinimg.com/750x/10/b4/c8/10b4c899ae91bdf1169f67318ae962e4.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/d5/fb/88/d5fb8868d126eeb7b0b4125c50cc5a1d.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Feddie',
+  breed: 'French Bulldog',
+  age: 2,
+  description: "Very energetic and overall very friendly, is a rescue and can be wary of other dogs but is getting more confident",
+  price: 7,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+file = URI.open('https://i.pinimg.com/564x/16/52/89/16528989bac5df694663f9c4984636ee.jpg')
+file_two = URI.open('https://i.pinimg.com/564x/28/da/d7/28dad7d6f817e100e9b2fa6247d2638b.jpg')
+file_three = URI.open('https://i.pinimg.com/564x/b4/37/07/b437072dfb2e41f28db0c8be7fd95f6b.jpg')
+dog = Dog.create(
+  user: user,
+  name: 'Basil',
+  breed: 'French Bulldog',
+  age: 8,
+  description: "Submmisive and very good natured, playful needing two walks a day. Has a good appetite",
+  price: 8,
+  location: locations.sample
+)
+dog.photos.attach(io: file, filename: 'little_pug.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
+
+dog.save!
+
+
+
+
+
+# locations.each do |location|
+#   dog = Dog.create!(
+#     name: Faker::Creature::Dog.name,
+#     breed: Faker::Creature::Dog.breed,
+#     age: Faker::Number.within(range: 1..15),
+#     description: Faker::Creature::Dog.meme_phrase,
+#     price: Faker::Commerce.price(range: 3..20.0, as_string: true),
+#     location: addresses.sample,
+#     user: User.last
+#   )
+# end
 puts 'Dog Seed Complete!'
