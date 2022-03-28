@@ -28,7 +28,7 @@
     <div>
       <% @future_bookings.each do |booking| %>
         <div>
-          <%# <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %>
+          <%# <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %> %>
           <div>
             <div>
               <h2>Your booking with <%= booking.dog.name %> the <%= booking.dog.breed %></h2>
@@ -68,11 +68,11 @@
     <div>
       <% @dogs.each do |dog| %>
         <div>
-          <%# <%= cl_image_tag dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %> %>
+          <%# <%= cl_image_tag dog.photos[0].key, width: 200, height: 200, class: "card-product-image" %>
           <div>
             <div>
               <h2><%= dog.name %> the <%= dog.breed %></h2>
-              <p><strong>Breed:</strong> <%= animal.breed %></p>
+              <p><strong>Breed:</strong> <%= dog.breed %></p>
               <p><strong>Age:</strong> <%= dog.age %></p>
             </div>
             <div>
@@ -109,7 +109,7 @@
       <% end %>
     </div>
     <div>
-      <%# <%= render 'dogs/show' %> %>
+       <%# <%= render 'dogs/show' %> %>
     </div>
   </div>
 </div>
