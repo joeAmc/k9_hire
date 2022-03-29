@@ -213,7 +213,6 @@ locations = [
   "39 Thorne Street, London, SW13 0PT"
 ]
 
-
 puts "Creating dogs..."
 
 file = URI.open('https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2021/11/10093442/Pug-puppy-sitting-outdoors.jpg')
@@ -234,7 +233,6 @@ dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'i
 
 dog.save!
 
-
 file = URI.open('https://www.allthingsdogs.com/wp-content/uploads/2019/08/Black-Pug.jpg')
 file_two = URI.open('https://live.staticflickr.com/78/166407398_1885ab77e9_h.jpg')
 file_three = URI.open('https://www.thegoodypet.com/wp-content/uploads/2022/02/black-pug-a-complete-guide-to-this-pug-breed.jpg')
@@ -252,7 +250,6 @@ dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'ima
 dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
 
 dog.save!
-
 
 file = URI.open('https://i.pinimg.com/564x/34/9f/70/349f70d3708f09b7d90e857827ffbaf2.jpg')
 file_two = URI.open('https://i.pinimg.com/564x/f5/85/64/f58564373a05e39a1cb9e49344d7b11b.jpg')
@@ -290,7 +287,6 @@ dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'i
 
 dog.save!
 
-
 file = URI.open('https://i.pinimg.com/736x/8e/51/b3/8e51b3859141f8740ce20662f8625900.jpg')
 file_two = URI.open('https://i.pinimg.com/564x/24/08/e7/2408e714a3d4bf35b042cfc721974a98.jpg')
 file_three = URI.open('https://i.pinimg.com/564x/1b/93/4d/1b934d1449a35c8cf097887f4a18b33d.jpg')
@@ -326,7 +322,6 @@ dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'ima
 dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
 
 dog.save!
-
 
 file = URI.open('https://i.pinimg.com/564x/ae/84/f6/ae84f6161c1dd2448f30d8aa2fc36fd6.jpg')
 file_two = URI.open('https://i.pinimg.com/564x/b6/c6/5c/b6c65c06621715affbcfb15232907309.jpg')
@@ -399,7 +394,6 @@ dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'ima
 dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
 
 dog.save!
-
 
 file = URI.open('https://i.pinimg.com/564x/d2/5e/e8/d25ee8a822560f22e5bc05334d6dfc7f.jpg')
 file_two = URI.open('https://i.pinimg.com/564x/01/a3/d0/01a3d02a2e2da98e4d2b2b97c0e31144.jpg')
@@ -580,10 +574,6 @@ dog.photos.attach(io: file_two, filename: 'little_pug1.jpeg', content_type: 'ima
 dog.photos.attach(io: file_three, filename: 'little_pug1.jpeg', content_type: 'image/jpeg')
 
 dog.save!
-
-
-
-
 
 # locations.each do |location|
 #   dog = Dog.create!(
