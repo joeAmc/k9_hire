@@ -1,14 +1,14 @@
 .banner {
-  background-image: image-url('banner.png');
-  // background-size: 100% auto;
+  display: flex;
+  justify-content: right;
+  align-items: center;
   background-size: cover;
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   margin-bottom: 32px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  text-align: end;
-  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3)
 }
+
 
 // .banner {
 //   background-size: cover;
@@ -16,25 +16,35 @@
 //   padding: 150px 0;
 // }
 
-.banner h1{
-  color: white;
-  font-size: 72px;
-  font-weight: bold;
-  font-family: 'Arimo', sans-serif;
-  margin-bottom: 30px;
-}
 
 .banner h3{
   color: rgb(231, 231, 230);
-  font-size: 38px;
+  font-size: 28px;
   font-weight: bold;
   font-family: 'Arimo', sans-serif;
   font-weight: 400;
 }
 
-.banner-text {
-  margin-right: 50px;
-  text-align: end;
-  position: absolute;
+.banner h1{
+  color: rgb(231, 231, 230);
+  font-size: 78px;
+  font-weight: bold;
+  font-family: 'Lobster', cursive;
+  font-weight: 400;
+}
 
+.banner-text {
+
+  margin-right: 350px;
+  position: absolute;
+  text-align: center;
+  background-color: rgba(0,0,0,0.3);
+  height: 50vh;
+  padding: 36px;
+  border-radius: 26px;
+}
+
+.navbar {
+    position: fixed;
+    width: 100vw;
 }
