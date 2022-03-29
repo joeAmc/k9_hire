@@ -1,49 +1,34 @@
-
-<%#
-    <div class="title">
-      <h1 style="text-align:right; margin-right:10px;">K9-Hire</h1>
-
-      <h3 style="text-align:right; margin-right:10px;"><em>Ever think</em> about owning a Dog?</h3>
-      <h3 style="text-align:right; margin-right:10px;">Hire a Dog temporarily now!</h3>
-      <form class="form" style="text-align:right; margin-right:10px;">
-        <input type="search" id="query" name="q" placeholder="Search dogs via city.."
-        aria-label="Search through site content">
-        <%= link_to "Search", dogs_path, class: "btn btn-gradient"%>
-      <%# </form>
-    </div>
- %>
-
- <div class="banner d-flex align-items-center flex-row-reverse">
-    <div class="banner-text">
-      <h1>K9-Hire</h1>
-      <h3>Love dogs? But can't own a dog?</h3>
-      <h3>Rent a dog! </h3><br>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0 )), url(https://www.servicemarksolutions.com/wp-content/uploads/2017/06/dog-face-wind-glasses-hd-image.jpg);">
+      <div class="banner-text">
+      <h1>Paw Pals</h1>
+      <h3>Always wanted a dog?</h3>
+      <h3>Rent one!</h3><br>
       <%= form_tag dogs_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find a Breed"%><br>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "btn btn-danger" %>
       <% end %>
     </div>
   </div>
 
     <div class="home-cards-container">
-      <div class="card">
+      <div class="card" style="transform: rotate(20deg)">
         <img src="https://www.akc.org/wp-content/uploads/2016/06/German-Shepherd-Dog-laying-down-in-the-backyard.jpeg" alt="Avatar">
         <div class="header-4">
           <h4><b>Mika</b></h4>
           <a href="#" class="favourites"><i class="fa fa-paw" style="font-size:25px;"></i></a>
         </div>
       </div>
-      <div class="card">
+      <div class="card" style="transform: rotate(3deg)">
         <img src="https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445" alt="Avatar">
         <div class="header-4">
           <h4><b>Pam</b></h4>
           <a href="#" class="favourites"><i class="fa fa-paw" style="font-size:25px;"></i></a>
         </div>
       </div>
-      <div class="card">
+      <div class="card" style="transform: rotate(325deg)">
         <img src="https://www.waltham.com/sites/g/files/jydpyr1046/files/2020-09/golden%20retriever%20mix%20dog%20walking%20in%20the%20forest.jpg" alt="Avatar  ">
         <div class="header-4">
           <h4><b>Dave</b></h4>
