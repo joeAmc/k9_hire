@@ -32,7 +32,7 @@
       <button type="button" class="btn btn-primary m-0" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
       <%="Book #{@dog.name}"%>
       </button>
-      <%= link_to "Back", dogs_path, class: "btn btn-primary m-0" %>
+      <%= link_to "Back", url_for(:back) , class: "btn btn-primary m-0" %>
     </div>
   </div>
 </div>
