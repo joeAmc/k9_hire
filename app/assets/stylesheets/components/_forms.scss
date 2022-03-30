@@ -2,7 +2,7 @@
   padding: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 40vw;
+  width: 30vw;
   border:0;
   background-color: rgba(241, 239, 239, 0.9);
   box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
@@ -49,10 +49,25 @@
   // border-radius: 10px;
   border: none;
   // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
-  .btn-primary {
+  .btn-danger {
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 10px;
+  }
+}
+
+.form-list {
+  .btn-danger {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+  }
+  .btn-outline-danger {
+    margin-left: 10px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 }
 
