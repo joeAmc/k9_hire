@@ -1,4 +1,8 @@
 
+<% def configure_permitted_parameters %>
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+<% end %>
+
 <div class="d-flex align-items-center justify-content-center">
   <div class="text-start">
     <div class="form-list new-dog-form">
