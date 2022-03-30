@@ -16,8 +16,8 @@
         <%=f.input :location %>
         <%# <%= f.input :photo, as: :file %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.submit 'Submit', class: 'btn btn-primary form-btn' %>
-        <%= link_to 'Cancel', root_path, class: 'btn btn-outline-primary form-btn' %>
+        <%= f.submit 'Submit', class: 'btn btn-danger form-btn' %>
+        <%= link_to 'Cancel', root_path, class: 'btn btn-outline-danger form-btn' %>
       <% end %>
     </div>
   </div>
