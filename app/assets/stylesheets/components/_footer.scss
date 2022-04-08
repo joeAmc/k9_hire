@@ -5,10 +5,21 @@
   height: 100px;
   width: 100%;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
-  // position: absolute;
-  // bottom: 0;
+  color: #0000004d;
 }
+
+.footerfixed {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  width: 100%;
+  padding: 0px 50px;
+  color: #0000004d;
+  position: fixed;
+  bottom: 0;
+}
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -24,7 +35,7 @@
   opacity: 1;
 }
 
-.fa{
+.fa {
   color: #744343;
   margin-left: 10px;
 }
