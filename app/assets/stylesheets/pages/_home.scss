@@ -1,89 +1,83 @@
-body {
-  // background-image: url("https://media.freestocktextures.com/cache/7c/18/7c185ba40dc9b1c6322b47146d4be837.jpg");
-}
-
-
-.container{
+.container {
   padding-left: 0px;
+  position: relative;
 }
 
-.home-cards-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    justify-items: center;
-    margin-bottom: 20px;
+.home-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 20px;
 }
 
-.topnav{
+.topnav {
   text-align: center;
-  background-color:white;
-  padding:10px;
+  background-color: white;
+  padding: 10px;
   text-decoration: none;
 }
 
-.topnav i{
+.topnav i {
   margin: 0px;
 }
 
-.topnav a{
+.topnav a {
   margin: 0px;
 }
 
-.about{
+.about {
   margin-right: 50px;
   margin-left: 50px;
 }
-.k9-sign{
+.k9-sign {
   margin-right: 50px;
 }
-.sign-up{
+.sign-up {
   margin-right: 50px;
 }
-.login{
+.login {
   margin-right: 50px;
 }
-.logo{
+.logo {
   height: 50px;
   width: 60px;
 }
-.title{
+.title {
   background-image: url("https://www.outsideonline.com/wp-content/uploads/2018/12/10/running-dog-breeds_h.jpg");
-  padding:150px 0;
+  padding: 150px 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
-.title h1{
-  color:white;
+.title h1 {
+  color: white;
   font-weight: bold;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: 700;
 }
-.title h3{
+.title h3 {
   color: white;
-  font-weight:lighter;
+  font-weight: lighter;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
-.form{
+.form {
   text-align: center;
   margin: 0px;
   padding: 0px;
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width:25%;
+  width: 25%;
   // margin-top:20px;
   background-color: white;
   width: 23rem;
-  padding:10px;
+  padding: 10px;
 }
 
-
-.card img{
+.card img {
   height: 250px;
   width: 100%;
   overflow: hidden;
@@ -98,23 +92,23 @@ body {
   width: 50%;
   height: 300px;
 }
-.header-4{
+.header-4 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:10px;
+  padding: 10px;
 }
-.title h2{
+.title h2 {
   justify-content: right;
 }
-.body{
-  margin:0px;
-  width:100px;
+.body {
+  margin: 0px;
+  width: 100px;
 }
 
 .btn-primary {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: #4a4a4a;
+  border: 1px solid #4a4a4a;
   // padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
@@ -134,15 +128,15 @@ body {
   font-weight: bold;
   background: linear-gradient(#ffffff, #ffffff);
   transition: background 0.3s ease;
-  border: 1px solid #0F60C4;
+  border: 1px solid #0f60c4;
 }
 
 .btn-gradient:hover {
-  background: linear-gradient(#147EFF, #0F67DA);
+  background: linear-gradient(#147eff, #0f67da);
   color: white;
 }
 
-.form-container{
+.form-container {
   margin-left: 50px;
   margin-right: 50px;
 }
