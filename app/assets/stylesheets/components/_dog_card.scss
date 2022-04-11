@@ -6,7 +6,7 @@
   width: 85%;
   padding: 10px;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top:15px;
   border-radius: 20px;
   .image{
@@ -158,4 +158,3 @@
 .button-55:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
-
