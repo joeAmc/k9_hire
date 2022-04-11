@@ -88,6 +88,9 @@
   height: 360px;
   width: 43%;
   border-radius: 10px;
+  #grad {
+    background-image: linear-gradient(to right, red , yellow);
+  }
 }
 
 .pic {
