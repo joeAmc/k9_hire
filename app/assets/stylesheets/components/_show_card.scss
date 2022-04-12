@@ -1,14 +1,11 @@
-
-
 .card-trip {
-
   margin: auto;
 
   height: 627px;
-  margin-top:55px;
+  margin-top: 55px;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   width: 150vh;
   margin-bottom: 150px;
   justify-content: center;
@@ -17,18 +14,15 @@
 }
 
 .btn {
-  margin-bottom: 20px;
-
+  // margin-bottom: 20px;
 }
 
-.card-trip-infos{
-
+.card-trip-infos {
   margin: auto;
   width: 50%;
   // display: flex;
   // justify-items: center;
   text-align: center;
-
 }
 
 .images {
@@ -52,15 +46,13 @@
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 11px;
-
 }
 
-  .card-trip p {
-    font-size:20px;
-    opacity: .7;
-    margin-bottom: 4px;
+.card-trip p {
+  font-size: 20px;
+  opacity: 0.7;
+  margin-bottom: 4px;
 }
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -78,7 +70,6 @@
 }
 
 .card-trip-infos .paw {
-
   position: absolute;
   align-items: flex-end;
   // margin-left: 0px;

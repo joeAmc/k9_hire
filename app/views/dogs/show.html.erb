@@ -6,7 +6,7 @@
     <div class=”carousel-inner”>
       <% @dog.photos.each_with_index do |pic, index| %>
         <div class="carousel-item <%= "active " if index==0 %>">
-          <%= cl_image_tag(pic.key, width: "340px", height: "340px") %>
+          <%= cl_image_tag(pic.key) %>
         </div>
       <%end%>
     </div>
