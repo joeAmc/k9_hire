@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-   resources :dogs do
+  resources :dogs do
     resources :bookings, only: [:new, :create]
-    end
-      resources :bookings, only: [:index, :show, :edit, :update, :destroy]
-   end
+  end
+  resources :bookings, only: [:index, :show, :edit, :update, :destroy]
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+end

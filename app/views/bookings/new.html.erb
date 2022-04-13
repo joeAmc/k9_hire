@@ -1,3 +1,49 @@
-<%=render 'form', booking: @booking%>
-<%= link_to 'Back', dog_path(@dog) %>
-<%= link_to 'Dashboard', dashboard_path %>
+<%#=render 'form', booking: @booking%>
+<div class="dog-card-show">
+  <div class="pic">
+<!-- Carousel -->
+  <div id="carouselExampleControls" class="carousel slide h-100 w-100" data-bs-ride="carousel">
+<!-- Attempted code below to review with TA -->
+    <div class=”carousel-inner”>
+      <% @dog.photos.each_with_index do |pic, index| %>
+        <div class="carousel-item <%= "active " if index==0 %>">
+          <%= cl_image_tag(pic.key, width: "340px", height: "340px") %>
+        </div>
+      <%end%>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" style="color: black;"  aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div>
+  <%# <%= cl_image_tag @dog.photos[0], height: 300, width: 400, crop: :fill %>
+    <div class="dog-card-info">
+      <h2><%=@dog.name%></h2>
+      <p>Breed: <%= @dog.breed %></p>
+      <p>Age: <%= @dog.age %></p>
+      <p>Character: <%= @dog.description %></p>
+      <p>£ <%= @dog.price %> per day</p>
+      <%# <div class = "dog-image" style="text-align: center;"> %>
+       <%= simple_form_for [@dog, @booking] do |f| %>
+           <%= f.label :Start %>
+           <%= f.date_field :pick_up, as: :string %>
+           <%= f.label :End %>
+           <%= f.date_field :drop_off, as: :string%>
+           <%# <div class="card-buttons"> %>
+           <%= f.submit "Book #{@dog.name}", class: "btn btn-primary" %>
+           <%= link_to 'Back', dogs_path(@dog) %>
+           </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%#= link_to 'Back', dog_path(@dog) %>
+<%#= link_to 'Dashboard', dashboard_path %>

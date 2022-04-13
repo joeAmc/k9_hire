@@ -1,0 +1,20 @@
+ <div class="col d-flex justify-content-center">
+
+ <div class="card border-dark mb-3" style="width: 18rem;">
+  <div class="image">
+     <%= cl_image_tag @order.booking.dog.photos[0].key, width: 200, height: 200, class: "rounded-circle" %>
+  </div>
+  <div class="card-body">
+    <h2>Thanks <%= "#{@order.booking.user.first_name}!" %></h2>
+    <ul class="list-unstyled">
+      <li><strong>DATE: </strong> <%= (@order.created_at).strftime("%a, %b %d %Y ") %></li>
+      <li><strong>DOG: </strong> <%= @order.booking.dog.name %></li>
+      <%# <li><strong>USER</strong> <%= @order.donation.user.first_name %>
+      <li><strong>TOTAL: </strong> <%= humanized_money_with_symbol @order.amount_cents %></li>
+    </ul>
+    <div class="buttons-conf">
+      <%= link_to "Dashboard", dashboard_path(@bookings), class: "btn-fr" %>
+    </div>
+  </div>
+</div>
+</div>

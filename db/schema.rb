@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_142700) do
+ActiveRecord::Schema.define(version: 2022_04_07_015951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2022_03_29_142700) do
     t.bigint "dog_id", null: false
     t.datetime "pick_up"
     t.datetime "drop_off"
+    t.integer "price_cents", default: 0, null: false
     t.index ["dog_id"], name: "index_bookings_on_dog_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -69,6 +70,18 @@ ActiveRecord::Schema.define(version: 2022_03_29_142700) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_dogs_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_orders_on_booking_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -97,4 +110,6 @@ ActiveRecord::Schema.define(version: 2022_03_29_142700) do
   add_foreign_key "bookings", "dogs"
   add_foreign_key "bookings", "users"
   add_foreign_key "dogs", "users"
+  add_foreign_key "orders", "bookings"
+  add_foreign_key "orders", "users"
 end
