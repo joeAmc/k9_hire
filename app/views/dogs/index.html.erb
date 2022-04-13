@@ -1,25 +1,31 @@
 <% if @dogs.count == 0 %>
-    <h4><%= "Sorry we couldn't find any dogs matching your search!" %></h4>
-    <% end %>
+  <h4><%= "Sorry we couldn't find any dogs matching your search!" %></h4>
+<% end %>
 <div class="d-flex">
   <div class="container">
-        <% @dogs.each do |dog| %>
-        <div class="dog-card">
-          <div class="image">
-            <%=image_tag "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=0.672xw:1.00xh;0.166xw,0&resize=640:*", alt: 'Dog', style: 'height:200px; width:auto; border-radius:20px;'%>
-          </div>
-          <div class="card-info">
-            <h1><%= link_to dog.name, dog_path(dog) %></h1>
-            <p>Breed: <%= dog.breed %></p>
-            <p>Age: <%= dog.age %></p>
-            <p>£ <%= dog.price %> per hour</p>
-          </div>
-        </div>
-        <% end  %>
-  </div>
-    <div style="width: 100%; height: 100vh; position:sticky;"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    <% @dogs.each do |dog| %>
+    <%= link_to dog_path(dog) do %>
+    <div class="dog-card" style="text-decoraton: none;">
+      <% dog.photos.each_with_index do |photo, index| %>
+      <% if index == 0 %>
+      <div class="image">
+        <%= cl_image_tag photo.key %>
+      </div>
+      <% end %>
+      <% end %>
+      <div class="card-info" >
+        <h1><%= dog.name %></h1>
+        <p><span style="background-color: #CCC2B8; "><strong>Breed:</strong> <%= dog.breed %></span></p>
+        <p><span style="background-color: #CCC2B8"><strong>Age:</strong> <%= dog.age %></span></p>
+        <p><span style="background-color: #CCC2B8"><strong>Price:</strong> <%= dog.price %> per hour</span></p>
+      </div>
     </div>
+    <% end  %>
+    <% end  %>
+  </div>
+  <div style="width: 100%; height: 100vh; position:sticky;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
