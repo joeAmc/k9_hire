@@ -1,3 +1,86 @@
-<%=render 'form', booking: @booking%>
-<%= link_to 'Back', dog_path(@dog) %>
-<%= link_to 'Dashboard', dashboard_path %>
+<style>
+.dog-card-show {
+    margin-bottom: 130px;
+    margin-top: 130px;
+    height: 537px;
+    width: 48%;
+    border-radius: 0px;
+}
+
+.button-55 {
+  align-items: left;
+  padding-left: -18px;
+}
+
+.picker {
+  align-items: left;
+  margin-bottom: 12px;
+}
+
+.choose {
+  background-color: #CCC2B8;
+  padding: 4px:
+}
+</style>
+
+
+
+<div class="dog-card-show">
+  <div class="pic">
+<!-- Carousel -->
+  <div id="carouselExampleControls" class="carousel slide h-100 w-100" data-bs-ride="carousel">
+<!-- Attempted code below to review with TA -->
+    <div class=”carousel-inner”>
+      <% @dog.photos.each_with_index do |pic, index| %>
+        <div class="carousel-item <%= "active " if index==0 %>">
+          <%= cl_image_tag(pic.key) %>
+        </div>
+      <%end%>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" style="color: black;"  aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div>
+  <%# <%= cl_image_tag @dog.photos[0], height: 300, width: 400, crop: :fill %>
+    <div class="dog-card-info">
+      <h1 style="font-family: 'Lobster', cursive; color: #836E5D;"> <%= @dog.name %></h1>
+      <p><span style="background-color: #CCC2B8"><strong>Breed:</strong> <%= @dog.breed %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>Age:</strong> <%= @dog.age %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>Character:</strong> <%= @dog.description %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>£</strong> <%= @dog.price %> per day</span></p>
+      <%# <div class = "dog-image" style="text-align: center;"> %>
+       <%= simple_form_for [@dog, @booking] do |f| %>
+           <%= f.label :Start, class:"choose" %>
+           <%= f.date_field :pick_up, as: :string, class:"picker" %>
+           <br>
+           <%= f.label :End, class: "choose" %>
+           <%= f.date_field :drop_off, as: :string, class:"picker"%>
+           <%# <div class="card-buttons"> %>
+          <div class="card-buttons" style="justify-content: space-between">
+
+          <button type="button" class="button-55 mb-3 mt-3 ml-4" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
+           <%= f.submit "Book #{@dog.name}" %>
+      </button>
+
+           <%# <%= f.submit "Book #{@dog.name}", class: "btn btn-primary" %>
+
+
+         <%= link_to "Back", url_for(:back) , class:"button-55" %>
+
+           <%# <%= link_to 'Back', dogs_path(@dog) %>
+           </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%#= link_to 'Back', dog_path(@dog) %>
+<%#= link_to 'Dashboard', dashboard_path %>

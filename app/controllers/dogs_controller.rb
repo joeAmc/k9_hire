@@ -20,6 +20,9 @@ class DogsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new()
+    render 'bookings/new'
+
   end
 
   def new

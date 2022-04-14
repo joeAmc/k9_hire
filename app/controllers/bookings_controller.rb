@@ -21,8 +21,10 @@ class BookingsController < ApplicationController
     # @booking.dog_id = @dog.id
     @pick_up = Date.parse(params[:booking][:pick_up])
     @drop_off = Date.parse(params[:booking][:drop_off])
-    @duration = (@drop_off - @pick_up).to_i
-    @booking.total_price = (@dog.price * @duration).round(2)
+    # @duration = (@drop_off - @pick_up).to_i
+    # @booking.total_price = (@dog.price * @duration).round(2)
+    @booking.total_price = @dog.price * (@drop_off - @pick_up).to_i
+
       if @booking.save
         flash[:success] = "You have submited the information successfully!"
         redirect_to booking_path(@booking)
@@ -63,7 +65,7 @@ class BookingsController < ApplicationController
 
   def booking_params
 
-  params.require(:booking).permit(:pick_up, :drop_off)
+  params.require(:booking).permit(:pick_up, :drop_off, :price_cents)
   end
 
   def find_booking

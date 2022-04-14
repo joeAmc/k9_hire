@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'faker'
 gem "geocoder"
+gem 'money-rails'
+gem 'stripe'
 
 
 # Use Active Storage variant
