@@ -3,14 +3,14 @@
   margin-top: 30px;
   margin-bottom: 30px;
   width: 30vw;
-  border:0;
-  background-color: rgba(241, 239, 239, 0.9);
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
-  border-radius: 10px;
+  border: 0;
+  background-color: rgba(241, 239, 239, 1);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 0px;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 20px;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
   color: rgb(54, 54, 54);
 }
@@ -20,26 +20,25 @@
   margin-top: 30px;
   margin-bottom: 30px;
   width: 40vw;
-  border:0;
-  background-color: rgba(241, 239, 239, 0.9);
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
-  border-radius: 10px;
+  border: 0;
+  background-color: rgba(241, 239, 239, 1);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 0px;
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 20px;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: bold;
   color: rgb(54, 54, 54);
-
 }
 
-.form-list input{
+.form-list input {
   // border-radius: 10px;
   border: none;
   // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
 }
 
-.form-container input{
+.form-container input {
   // border-radius: 10px;
   border: none;
   // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
@@ -47,45 +46,43 @@
 
 .form-container {
   // border-radius: 10px;
-  border: none;
-  // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
-  .btn-danger {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-  }
+  // border: none;
+  // // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
+  // .btn-danger {
+  //   margin-left: 0px;
+  //   margin-right: 0px;
+  //   margin-bottom: 10px;
+  // }
 }
 
 .form-list {
-  .btn-danger {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-  }
-  .btn-outline-danger {
-    margin-left: 10px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
+  // .btn-danger {
+  //   margin-left: 0px;
+  //   margin-right: 0px;
+  //   margin-bottom: 10px;
+  // }
+  // .btn-outline-danger {
+  //   margin-left: 10px;
+  //   margin-right: 0px;
+  //   margin-bottom: 10px;
+  //   padding-top: 5px;
+  //   padding-bottom: 5px;
+  // }
 }
-
 
 .form-label {
   // border-radius: 10px;
   border: none;
 }
 
-.form-btn{
+.form-btn {
   margin: 0px;
   // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
-  }
+}
 
-  textarea.form-control {
-    min-height: calc(1.5em + (0.75rem + 2px));
-    // border-radius: 10px;
-    border: none;
-    // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
-
-  }
+textarea.form-control {
+  min-height: calc(1.5em + (0.75rem + 2px));
+  // border-radius: 10px;
+  border: none;
+  // box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
+}

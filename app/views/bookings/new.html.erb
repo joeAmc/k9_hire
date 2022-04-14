@@ -1,4 +1,30 @@
-<%#=render 'form', booking: @booking%>
+<style>
+.dog-card-show {
+    margin-bottom: 130px;
+    margin-top: 130px;
+    height: 537px;
+    width: 48%;
+    border-radius: 0px;
+}
+
+.button-55 {
+  align-items: left;
+  padding-left: -18px;
+}
+
+.picker {
+  align-items: left;
+  margin-bottom: 12px;
+}
+
+.choose {
+  background-color: #CCC2B8;
+  padding: 4px:
+}
+</style>
+
+
+
 <div class="dog-card-show">
   <div class="pic">
 <!-- Carousel -->
@@ -7,7 +33,7 @@
     <div class=”carousel-inner”>
       <% @dog.photos.each_with_index do |pic, index| %>
         <div class="carousel-item <%= "active " if index==0 %>">
-          <%= cl_image_tag(pic.key, width: "340px", height: "340px") %>
+          <%= cl_image_tag(pic.key) %>
         </div>
       <%end%>
     </div>
@@ -23,20 +49,31 @@
   </div>
   <%# <%= cl_image_tag @dog.photos[0], height: 300, width: 400, crop: :fill %>
     <div class="dog-card-info">
-      <h2><%=@dog.name%></h2>
-      <p>Breed: <%= @dog.breed %></p>
-      <p>Age: <%= @dog.age %></p>
-      <p>Character: <%= @dog.description %></p>
-      <p>£ <%= @dog.price %> per day</p>
+      <h1 style="font-family: 'Lobster', cursive; color: #836E5D;"> <%= @dog.name %></h1>
+      <p><span style="background-color: #CCC2B8"><strong>Breed:</strong> <%= @dog.breed %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>Age:</strong> <%= @dog.age %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>Character:</strong> <%= @dog.description %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>£</strong> <%= @dog.price %> per day</span></p>
       <%# <div class = "dog-image" style="text-align: center;"> %>
        <%= simple_form_for [@dog, @booking] do |f| %>
-           <%= f.label :Start %>
-           <%= f.date_field :pick_up, as: :string %>
-           <%= f.label :End %>
-           <%= f.date_field :drop_off, as: :string%>
+           <%= f.label :Start, class:"choose" %>
+           <%= f.date_field :pick_up, as: :string, class:"picker" %>
+           <br>
+           <%= f.label :End, class: "choose" %>
+           <%= f.date_field :drop_off, as: :string, class:"picker"%>
            <%# <div class="card-buttons"> %>
-           <%= f.submit "Book #{@dog.name}", class: "btn btn-primary" %>
-           <%= link_to 'Back', dogs_path(@dog) %>
+          <div class="card-buttons" style="justify-content: space-between">
+
+          <button type="button" class="button-55 mb-3 mt-3 ml-4" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
+           <%= f.submit "Book #{@dog.name}" %>
+      </button>
+
+           <%# <%= f.submit "Book #{@dog.name}", class: "btn btn-primary" %>
+
+
+         <%= link_to "Back", url_for(:back) , class:"button-55" %>
+
+           <%# <%= link_to 'Back', dogs_path(@dog) %>
            </div>
         <% end %>
       </div>

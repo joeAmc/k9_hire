@@ -1,42 +1,45 @@
-.dog-card{
+.dog-card {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   align-items: center;
-  width: 100%;
+  width: 85%;
   padding: 10px;
-  display:flex;
+  display: flex;
   justify-content: space-evenly;
-  margin-top:15px;
-  border-radius: 10px;
-  // margin: 0 auto;
-}
-
-.dog-card-show{
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: center;
-  width: 50%;
-  padding: 10px;
-  display:flex;
-  justify-content: space-evenly;
-  margin-top:15px;
-  margin: 0 auto;
-}
-.card-buttons{
-  .button{
-    margin-top:150px;
+  margin-top: 15px;
+  border-radius: 20px;
+  .image {
+    position: relative;
+    margin-right: 30px;
   }
 }
-.map{
-  height:450px;
-  width:300px;
-  display:flex;
-  margin-right:300px;
-  position:fixed;
-  top:0;
-  right:0;
+
+.dog-card-show {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  width: 50%;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin: 0 auto;
+}
+.card-buttons {
+  .button {
+    margin-top: 150px;
+  }
+}
+.map {
+  height: 450px;
+  width: 300px;
+  display: flex;
+  margin-right: 300px;
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 .footer {
   background: rgb(224, 223, 223);
@@ -45,7 +48,7 @@
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.3);
 }
 .footer-links {
   display: flex;
@@ -61,13 +64,13 @@
 .footer-links a:hover {
   opacity: 1;
 }
-.fa{
+.fa {
   color: #744343;
   margin-left: 10px;
 }
 .navbar-lewagon {
   justify-content: space-between;
-  background-color:white;
+  background-color: white;
 }
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -83,6 +86,10 @@
 
 .card-info {
   margin-left: 16px;
+  justify-content: space-between;
+}
+.dog-card:hover {
+  transform: scale(1.05);
 }
 .mapboxgl-popup {
   max-width: 200px;
@@ -92,11 +99,62 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
-.container{
-  height:100vh;
+.container {
+  height: 100vh;
   overflow: scroll;
 }
 
 .dog-card-info {
-  margin-left: 20px;
+  margin: 90px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  h1 {
+    // margin-left: 100px;
+    color: #744343;
+  }
+  .button-55 {
+    margin-right: 30px;
+  }
+}
+
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
