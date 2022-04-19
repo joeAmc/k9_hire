@@ -15,7 +15,7 @@ class User < ApplicationRecord
     if avatar.attached?
       avatar
     else
-      "ava.jpg"
+     "ava.jpg"
     end
   end
 end
