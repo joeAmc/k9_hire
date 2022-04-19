@@ -118,12 +118,17 @@
   background-color: white;
 }
 
+.carousel {
+  display: flex;
+  align-items: center;
+}
+
 .carousel-item img {
   // height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
-  height: 340px;
-  width: 340px;
+  height: 496px;
+  width: 387px;
   overflow: hidden;
   border-radius: 0px;
+  margin-left: 6px;
 }

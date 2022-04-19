@@ -4,6 +4,7 @@
     height: 537px;
     width: 54%;
     border-radius: 0px;
+
 }
 
 .picker {
@@ -20,10 +21,7 @@
 
 
 <div class="dog-card-show">
-  <div class="pic">
-<!-- Carousel -->
   <div id="carouselExampleControls" class="carousel slide h-100 w-100" data-bs-ride="carousel">
-<!-- Attempted code below to review with TA -->
     <div class=”carousel-inner”>
       <% @dog.photos.each_with_index do |pic, index| %>
         <div class="carousel-item <%= "active " if index==0 %>">
@@ -40,10 +38,9 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  </div>
   <%# <%= cl_image_tag @dog.photos[0], height: 300, width: 400, crop: :fill %>
     <div class="dog-card-info">
-      <h1 style="font-family: 'Lobster', cursive; color: #836E5D;"> <%= @dog.name %></h1>
+      <h1 style="font-family: 'Lobster', cursive; color: #836E5D; padding-bottom: 22px;"> <%= @dog.name %></h1>
       <p><span style="background-color: #CCC2B8"><strong>Breed:</strong> <%= @dog.breed %></span></p>
       <p><span style="background-color: #CCC2B8"><strong>Age:</strong> <%= @dog.age %></span></p>
       <p><span style="background-color: #CCC2B8"><strong>Character:</strong> <%= @dog.description %></span></p>
@@ -57,18 +54,11 @@
            <%= f.date_field :drop_off, as: :string, class:"picker"%>
            <%# <div class="card-buttons"> %>
           <div class="card-buttons" style="justify-content: space-between">
-
-          <button type="button" class="button-55 mb-3 mt-3 ml-4" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
-           <%= f.submit "Book #{@dog.name}" %>
-      </button>
-
-           <%# <%= f.submit "Book #{@dog.name}", class: "btn btn-primary" %>
-
-
-         <%= link_to "Back", url_for(:back) , class:"button-55" %>
-
-           <%# <%= link_to 'Back', dogs_path(@dog) %>
-           </div>
+            <button type="button" class="button-55 mb-3 mt-3 ml-4" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
+            <%= f.submit "Book #{@dog.name}" %>
+            </button>
+            <%= link_to "Back", url_for(:back) , class:"button-55" %>
+          </div>
         <% end %>
       </div>
     </div>
