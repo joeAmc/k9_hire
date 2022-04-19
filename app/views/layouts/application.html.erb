@@ -19,7 +19,7 @@
     <%= render "shared/navbar" %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <% if current_page?(root_path) || current_page?(dogs_path) %>
+    <% if current_page?(root_path) || current_page?(dogs_path) || current_page?(new_dog_path) %>
       <%= render "shared/footer" %>
     <% else %>
         <%= render "shared/footerfixed" %>
