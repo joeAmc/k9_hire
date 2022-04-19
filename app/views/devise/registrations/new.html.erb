@@ -1,6 +1,6 @@
 
 <% def configure_permitted_parameters %>
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+  devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :avatar])
 <% end %>
 
 <div class="d-flex align-items-center justify-content-center">
@@ -10,6 +10,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+        <%= f.input :avatar, as: :file %>
         <%= f.input :first_name,
                       autofocus: true,
                       input_html: { autocomplete: "First Name" }%>
