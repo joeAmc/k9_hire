@@ -24,3 +24,9 @@
     height: 29px;
   }
 }
+
+.dropdown-toggle:empty::after {
+  margin-left: 0;
+  color: white;
+  opacity: 0;
+}
