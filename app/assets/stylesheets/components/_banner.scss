@@ -2,13 +2,12 @@
   display: flex;
   justify-content: right;
   align-items: center;
-  background-size: cover;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
+  background-size: cover;
   margin-bottom: 32px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
 
 // .banner {
 //   background-size: cover;
@@ -16,35 +15,34 @@
 //   padding: 150px 0;
 // }
 
-
-.banner h3{
+.banner h3 {
   color: rgb(231, 231, 230);
   font-size: 28px;
   font-weight: bold;
-  font-family: 'Arimo', sans-serif;
+  font-family: "Arimo", sans-serif;
   font-weight: 400;
 }
 
-.banner h1{
+.banner h1 {
   color: rgb(231, 231, 230);
   font-size: 78px;
   font-weight: bold;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   font-weight: 400;
 }
 
 .banner-text {
-
-  margin-right: 350px;
+  margin-right: 20vw;
   position: absolute;
   text-align: center;
-  background-color: rgba(0,0,0,0.3);
-  height: 50vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 65vh;
   padding: 36px;
   border-radius: 26px;
+  overflow: hidden;
 }
 
 .navbar {
-    position: fixed;
-    width: 100vw;
+  position: fixed;
+  width: 100vw;
 }
