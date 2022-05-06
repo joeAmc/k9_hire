@@ -7,10 +7,13 @@
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
-  width: 61%;
+  width: 82%;
   border-radius: 0px;
-  margin-left: 171px;
+  // margin-left: 53px;
   text-decoration: none;
+  transition: 0.2s;
+  margin-left: auto;
+  margin-right: auto;
   // .image {
   //   margin-right: 30px;
   // }
@@ -82,7 +85,10 @@
 }
 
 .card-info {
-  margin-right: 37px;
+  // margin-right: 37px;
+  width: 10rem;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: space-between;
   h1 {
     color: #836e5d;
@@ -100,7 +106,7 @@
 }
 
 .dog-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 .mapboxgl-popup {
   max-width: 200px;
