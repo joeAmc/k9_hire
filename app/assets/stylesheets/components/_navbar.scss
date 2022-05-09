@@ -21,7 +21,7 @@
 .avatar {
   img {
     border-radius: 50%;
-    height: 29px;
+    height: 36px;
   }
 }
 
@@ -29,4 +29,8 @@
   margin-left: 0;
   color: white;
   opacity: 0;
+}
+
+.navbar-nav {
+  align-items: center;
 }
