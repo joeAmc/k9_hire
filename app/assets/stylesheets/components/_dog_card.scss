@@ -123,9 +123,10 @@
 }
 
 .dog-card-info {
-  margin: 90px;
-  margin-right: 130px;
+  // margin: 90px;
+  // margin-right: 130px;
   // margin-left: 60px;
+  padding: 8px;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   h1 {
@@ -136,6 +137,10 @@
     margin-right: 30px;
   }
 }
+
+// .dog-card-show input {
+//   font-size: 14px;
+// }
 
 .button-55 {
   align-self: center;
@@ -153,10 +158,10 @@
   cursor: pointer;
   display: inline-block;
   font-family: Neucha, sans-serif;
-  font-size: 1rem;
+  font-size: 12px;
   line-height: 23px;
   outline: none;
-  padding: 0.75rem;
+  padding: 0.25rem;
   text-decoration: none;
   transition: all 235ms ease-in-out;
   border-bottom-left-radius: 15px 255px;
