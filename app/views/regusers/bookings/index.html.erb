@@ -1,44 +1,31 @@
- <h1 class="text-center mb-3" style="padding-left: 24px; font-size: 24px; font-weight: bold;"><%= "Your dashboard" %></h1>
+<h1 class="dash-h1"><%= "Your dashboard" %></h1>
 
- <div class="col d-flex justify-content-center">
-
- <div class="card border-dark mb-3" style="width: 18rem;">
-
- <div class="text-center">
-
-
-<div>
-      <% @past_bookings.each do |booking| %>
-        <div>
-
-          <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "rounded-circle" %>
-          <div>
-            <div class="card-body">
-              <h5 class="card-title">Your booking with <%= booking.dog.name %></h5>
-              <p class="card-text"><%= booking.dog.description %></p>
-            </div>
-              <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Breed:</strong> <%= booking.dog.breed %></li>
-              <li class="list-group-item"><strong>Age:</strong> <%= booking.dog.age %></li>
-              <li class="list-group-item"><strong>Start date:</strong> <%= (booking.pick_up).strftime("%a, %b %d %Y ") %></li>
-              <li class="list-group-item"><strong>End date:</strong> <%= (booking.drop_off).strftime("%a, %b %d %Y ") %></li>
-              <li class="list-group-item"><strong>Total fee:</strong> £<%= booking.total_price %></li>
-              </ul>
-            <div class="card-body">
-              <div class="border-bottom pb-5">
-              <%= link_to 'View booking', booking_path(booking) %>
-              <%= link_to 'Edit booking', edit_booking_path(booking) %>
-              <%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %>
-              <br>
-              <%= link_to 'View dog', dog_path(:dog_id) %>
-              <%= link_to 'Edit dog', edit_dog_path(:dog_id) %>
-              <%= link_to 'Delete dog', dog_path(:dog_id), method: :delete, data: { confirm: 'Are you sure?' } %>
-              </div>
-            </div>
-          </div>
+<div class="dash-card-container">
+  <% @past_bookings.each do |booking| %>
+    <div class="dash-card">
+      <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "dash-card-img" %>
+      <div class="dash-card-text">
+        <div class="title-text">
+          <h5>Your booking with</h5>
+          <h1><%= booking.dog.name %></h1>
+          <%# <h5>the <%= booking.dog.breed</h5> %>
         </div>
-      <% end %>
-  </div>
-</div>
-</div>
+        <p><%= booking.dog.description %></p>
+        <ul>
+        <li ><strong>Start date:</strong> <%= (booking.pick_up).strftime("%a, %b %d %Y ") %></li>
+        <li><strong>End date:</strong> <%= (booking.drop_off).strftime("%a, %b %d %Y ") %></li>
+        <li><strong>Total fee:</strong> £<%= booking.total_price %></li>
+        </ul>
+        <div class="dash-btns">
+          <%# <%= link_to 'View booking', booking_path(booking) %>
+          <%= link_to 'Edit', edit_booking_path(booking), class:"button-55-dash" %>
+          <%= link_to 'Cancel', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class:"button-55-dash" %>
+          <br>
+          <%= link_to 'View dog', dog_path(:dog_id), class:"button-55-dash"%>
+          <%# <%= link_to 'Edit dog', edit_dog_path(:dog_id) %>
+          <%# <%= link_to 'Delete dog', dog_path(:dog_id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        </div>
+    </div>
+  <% end %>
 </div>
