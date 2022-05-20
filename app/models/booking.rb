@@ -4,9 +4,11 @@ class Booking < ApplicationRecord
   validates :pick_up, :drop_off, :dog, :user, presence: true
   validate :drop_off_after_pick_up
   validate :overlaps
+  has_many :orders, :dependent => :destroy
   # monetize :price_cents
 
   private
+
   def drop_off_after_pick_up
     return if drop_off.blank? || pick_up.blank?
 

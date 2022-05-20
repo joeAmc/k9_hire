@@ -14,10 +14,10 @@
 
 .choose {
   background-color: #CCC2B8;
-  padding: 4px:
 }
 </style>
 
+<%= render "layouts/flash" %>
 
 
 <div class="dog-card-show">
@@ -48,17 +48,24 @@
       <%# <div class = "dog-image" style="text-align: center;"> %>
        <%= simple_form_for [@dog, @booking] do |f| %>
            <%= f.label :Start, class:"choose" %>
-           <%= f.date_field :pick_up, as: :string, class:"picker" %>
+           <%= f.date_field :pick_up, as: :string, class:"picker"  %>
            <br>
            <%= f.label :End, class: "choose" %>
            <%= f.date_field :drop_off, as: :string, class:"picker"%>
            <%# <div class="card-buttons"> %>
           <div class="card-buttons" style="justify-content: space-between">
-            <button type="button" class="button-55 mb-2 mt-2 ml-2" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
-            <%= f.submit "Book #{@dog.name}" %>
-            </button>
-            <%= link_to "Back", url_for(:back) , class:"button-55" %>
-          </div>
+
+          <button type="button" class="button-55 mb-2 mt-2 ml-2" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
+           <%= f.submit "Book #{@dog.name}" %>
+      </button>
+
+           <%# <%= f.submit "Book #{@dog.name}", class: "btn btn-primary" %>
+
+
+         <%= link_to "Back", dogs_path(@dog) , class:"button-55" %>
+              # url_for(:back) removed due to causing problems
+           <%# <%= link_to 'Back', dogs_path(@dog) %>
+           </div>
         <% end %>
       </div>
     </div>
