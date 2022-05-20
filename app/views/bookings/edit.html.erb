@@ -1,7 +1,152 @@
-<h1>Edit the details of your booking:</h1>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+<style type="text/css">
+#overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #000;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity: 0.7;
+opacity: 0.7;
+z-index: 100;
+display: none;
+}
+.cnt223 a{
+text-decoration: none;
+}
+.popup{
+width: 100%;
+margin: 0 auto;
+display: none;
+position: fixed;
+z-index: 101;
+}
+.cnt223{
+min-width: 600px;
+width: 600px;
+height: 850px;
+min-height: 150px;
+margin: 100px auto;
+background: #f3f3f3;
+position: relative;
+z-index: 103;
+/* padding: 15px 35px; */
+margin-top: -20px;
+box-shadow: 0 2px 5px #000;
+}
+.cnt223 p{
+clear: both;
+    color: #555555;
+    text-align: justify;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.cnt223 p a{
+color: #d91900;
+font-weight: bold;
+}
+.cnt223 .x{
+float: right;
+height: 35px;
+left: 22px;
+position: relative;
+top: -25px;
+width: 34px;
+}
+.cnt223 .x:hover{
+cursor: pointer;
+}
+
+.text-center {
+    text-align: center!important;
+    margin-right: 40px;
+}
+.rounded-circle {
+    border-radius: 10%!important; */
+    /* align-items: center; */
+    /*padding-left: ;*/
+    /* align-content: center; */
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    /* margin-top: 12px; */
+}
+
+.body{
+  line-height: 0;
+}
+
+.dog-card-show {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 15px;
+    align-items: center;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    background: white;
+    padding: 15px;
+    margin: 0px auto;
+    height: 750px;
+    margin-top: 20px;
+}
+</style>
+<%# <script type='text/javascript'>
+$(function(){
+var overlay = $('<div id="overlay"></div>');
+overlay.show();
+overlay.appendTo(document.body);
+$('.popup').show();
+$('.close').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+
+
+
+
+$('.x').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+});
+</script> %>
+<%# <div class='popup'>
+<div class='cnt223'> %>
+<%# <div class="col d-flex justify-content-center"> %>
+<div class="dog-card-show">
+ <div class="dog-card-info">
+      <h1 class="text-center mb-3" style="padding-left: 24px; font-size: 24px; font-weight: bold;"><%= "Edit Booking" %></h1>
+      <div class="image">
+        <%= cl_image_tag @booking.dog.photos[0].key, width: 200, height: 200, class: "rounded-circle" %>
+      </div>
+      <h1 style="font-family: 'Lobster', cursive; color: #836E5D;"> <%= @dog.name %></h1>
+      <p><span style="background-color: #CCC2B8"><strong>Breed:</strong> <%= @dog.breed %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>Age:</strong> <%= @dog.age %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>Character:</strong> <%= @dog.description %></span></p>
+      <p><span style="background-color: #CCC2B8"><strong>£</strong> <%= @dog.price %> per day</span></p>
        <%= simple_form_for [@booking] do |f| %>
-           <%= f.date_field :pick_up, as: :string %>
-           <%= f.date_field :drop_off, as: :string %>
-            <span style="font-weight: normal; padding: 20px;font-size: 1.3rem;"> £<%= @dog.price %>/day </span>
-           <%= f.submit "Submit", class: "btn btn-primary" %>
+           <p><span style="background-color: #CCC2B8"><strong>Start:&nbsp;</strong><%= f.date_field :pick_up, as: :string, class:"picker"  %>
+           <br>
+           <p><span style="background-color: #CCC2B8"><strong>End:&nbsp;</strong>
+           <%= f.date_field :drop_off, as: :string, class:"picker"%>
+          <div class="card-buttons" style="justify-content: space-between">
+          <button type="button" class="button-55 mb-3 mt-3 ml-4" data-bs-toggle="modal" data-bs-target=<%= "#dog-modal-#{@dog.id}"%>>
+           <%= f.submit "Edit #{@dog.name}" %>
+          </button>
+            <%= link_to "Back", dashboard_path , class:"button-55" %>
+           </div>
         <% end %>
+      </div>
+      </div>
+<%# </div>
+</div>
+</div> %>

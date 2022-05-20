@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
   def show
     @dog = Dog.find(@booking.dog_id)
     @user = User.find(@booking.user_id)
-
   end
 
   def new
@@ -19,18 +18,32 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = current_user
     # @booking.dog_id = @dog.id
-    @pick_up = Date.parse(params[:booking][:pick_up])
-    @drop_off = Date.parse(params[:booking][:drop_off])
-    # @duration = (@drop_off - @pick_up).to_i
-    # @booking.total_price = (@dog.price * @duration).round(2)
-    @booking.total_price = @dog.price * (@drop_off - @pick_up).to_i
+    # if @pick_up.blank? || @drop_off.blank?
+    #   flash[:message] = "You have to submit the dates!"
+    # elsif
 
-      if @booking.save
-        flash[:success] = "You have submited the information successfully!"
-        redirect_to booking_path(@booking)
-      else
-        render 'new'
-      end
+    if @pick_up.nil? || @drop_off.nil?
+      flash[:message] = "Invalid Dates!"
+
+    # return flash[:message] = "You have to submit the dates!" if @pick_up == a.blank? || @drop_off == b.blank?
+    else
+      @pick_up = Date.parse(params[:booking][:pick_up])
+      @drop_off = Date.parse(params[:booking][:drop_off])
+
+      #@duration = (@drop_off - @pick_up).to_i
+    #end
+      @booking.total_price = @dog.price * (@drop_off - @pick_up).to_i
+      #@booking.total_price = (@dog.price * @duration).round(2)
+    end
+
+
+
+
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -52,13 +65,18 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    if @booking.drop_off > Date.today && @booking.destroy
-      # redirect_to bookings_path(@booking)
-      redirect_to root_path
-    else
-      # render 'bookings/index'
-      redirect_to root_path
-    end
+    @booking = Booking.find(params[:id])
+    # if @booking.drop_off > Date.today
+      #@booking.destroy
+       @booking.destroy!
+      # rescue ActiveRecord::RecordNotDestroyed => error
+      #   puts "errors that prevented destruction: #{error.record.errors}"
+      redirect_to dashboard_path, :notice => "Your booking has been deleted."
+      #redirect_to root_path
+    #else
+      #render 'bookings/:booking_id'
+      #redirect_to dashboard_path
+    #end
   end
 
   private

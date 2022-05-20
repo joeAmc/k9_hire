@@ -9,26 +9,24 @@
           <p>Origin: <%= @dog.location %></p>
           <p>Description: <%= @dog.description %></p>
 
-            <%= link_to "Return to my bookings", dashboard_path %>
+            <%= link_to "Return to Dashboard", dashboard_path %>
 
             <% if @booking.drop_off > Date.today %>
               <%= link_to 'Edit this booking', edit_booking_path(@booking) %>
             <% end %>
 
-            <% if @booking.drop_off > Date.today %>
-              <%= link_to 'Delete this booking', booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
           </div>
 
 
           <div style="text-align:center; background-color:white;">
             <p><strong>Start date:</strong> <%= (@booking.pick_up).strftime("%a, %b %d %Y ") %></p>
             <p><strong>End date:</strong> <%= (@booking.drop_off).strftime("%a, %b %d %Y ") %></p>
-            <h2>Total fee: £<%= @booking.total_price %></h2>
+            <h2>Total fee: £<%= @booking.total_price = (((@booking.drop_off - @booking.pick_up) /86400).to_i) * @dog.price %></h2>
             <%= form_tag orders_path do %>
             <%= hidden_field_tag 'booking_id', @booking.id %>
             <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
             <% end %>
+            <%= link_to 'Back', dog_path(@dog) %>
           </div>
         </div>
       </div>

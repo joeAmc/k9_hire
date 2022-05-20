@@ -1,1 +1,3 @@
-<%=render 'form', Booking: @Booking%>
+<%redirect_to booking_path(@booking)%>
+<%=@booking.total_price = @dog.price * (@drop_off - @pick_up).to_i%>
+This page is unavailable.

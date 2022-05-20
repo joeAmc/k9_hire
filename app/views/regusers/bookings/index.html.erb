@@ -6,9 +6,8 @@
 
  <div class="text-center">
 
-
 <div>
-      <% @past_bookings.each do |booking| %>
+      <% @current_bookings.each do |booking| %>
         <div>
 
           <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "rounded-circle" %>
@@ -22,7 +21,7 @@
               <li class="list-group-item"><strong>Age:</strong> <%= booking.dog.age %></li>
               <li class="list-group-item"><strong>Start date:</strong> <%= (booking.pick_up).strftime("%a, %b %d %Y ") %></li>
               <li class="list-group-item"><strong>End date:</strong> <%= (booking.drop_off).strftime("%a, %b %d %Y ") %></li>
-              <li class="list-group-item"><strong>Total fee:</strong> £<%= booking.total_price %></li>
+              <li class="list-group-item"><strong>Total fee:</strong> £<%= booking.total_price = (((booking.drop_off - booking.pick_up) /86400).to_i) * booking.dog.price %></li>
               </ul>
             <div class="card-body">
               <div class="border-bottom pb-5">
@@ -30,9 +29,7 @@
               <%= link_to 'Edit booking', edit_booking_path(booking) %>
               <%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' } %>
               <br>
-              <%= link_to 'View dog', dog_path(:dog_id) %>
-              <%= link_to 'Edit dog', edit_dog_path(:dog_id) %>
-              <%= link_to 'Delete dog', dog_path(:dog_id), method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'View dog', dog_path(booking.dog) %>
               </div>
             </div>
           </div>

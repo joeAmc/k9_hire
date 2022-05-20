@@ -19,10 +19,10 @@
 
 .choose {
   background-color: #CCC2B8;
-  padding: 4px:
 }
 </style>
 
+<%= render "layouts/flash" %>
 
 
 <div class="dog-card-show">
@@ -57,7 +57,7 @@
       <%# <div class = "dog-image" style="text-align: center;"> %>
        <%= simple_form_for [@dog, @booking] do |f| %>
            <%= f.label :Start, class:"choose" %>
-           <%= f.date_field :pick_up, as: :string, class:"picker" %>
+           <%= f.date_field :pick_up, as: :string, class:"picker"  %>
            <br>
            <%= f.label :End, class: "choose" %>
            <%= f.date_field :drop_off, as: :string, class:"picker"%>
@@ -71,8 +71,8 @@
            <%# <%= f.submit "Book #{@dog.name}", class: "btn btn-primary" %>
 
 
-         <%= link_to "Back", url_for(:back) , class:"button-55" %>
-
+         <%= link_to "Back", dogs_path(@dog) , class:"button-55" %>
+              # url_for(:back) removed due to causing problems
            <%# <%= link_to 'Back', dogs_path(@dog) %>
            </div>
         <% end %>
