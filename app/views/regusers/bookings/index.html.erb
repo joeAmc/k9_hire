@@ -1,7 +1,7 @@
 <h1 class="dash-h1"><%= "Your dashboard" %></h1>
 
 <div class="dash-card-container">
-  <% @past_bookings.each do |booking| %>
+  <% @current_bookings.each do |booking| %>
     <div class="dash-card">
       <%= cl_image_tag booking.dog.photos[0].key, width: 200, height: 200, class: "dash-card-img" %>
       <div class="dash-card-text">
