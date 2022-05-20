@@ -17,3 +17,20 @@
   margin-right: 16px;
   color: #744343;
 }
+
+.avatar {
+  img {
+    border-radius: 50%;
+    height: 36px;
+  }
+}
+
+.dropdown-toggle:empty::after {
+  margin-left: 0;
+  color: white;
+  opacity: 0;
+}
+
+.navbar-nav {
+  align-items: center;
+}

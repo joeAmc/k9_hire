@@ -2,7 +2,7 @@
   <div class="text-start">
     <div class="form-list new-dog-form">
       <%= simple_form_for @dog do |f| %>
-        <div class="form-row">
+        <div class="form-row" >
           <div class="col">
             <%=f.input :name %>
           </div>
@@ -15,9 +15,9 @@
         <%=f.input :price %>
         <%=f.input :location %>
         <%# <%= f.input :photo, as: :file %>
-        <%= f.input :photos, input_html: { multiple: true } %> # abutton-55s: :file removed as they were causing problems
-        <%= f.submit 'Submit', class: '' %>
-        <%= link_to 'Cancel', root_path, class: 'button-55' %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <button class="button-55"><%= f.submit style: "background-color: white"%></button>
+        <button style="border: none;"><%= link_to 'Cancel', root_path, style: "text-decoration: none; color: black;"%></button>
       <% end %>
     </div>
   </div>

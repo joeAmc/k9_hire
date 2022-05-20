@@ -1,10 +1,4 @@
 .card-trip {
-  // overflow: hidden;
-  //   background: white;
-  //   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  //   width: 82%;
-  //   text-align: center;
-  //   height: 400px;
   margin: auto;
   width: 70%;
   text-align: center;
@@ -83,15 +77,44 @@
 }
 
 .dog-card-show {
-  margin-bottom: 130px;
-  margin-top: 130px;
-  height: 360px;
-  width: 43%;
-  border-radius: 0px;
-  #grad {
-    background-image: linear-gradient(to right, red, yellow);
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  height: 58vh;
+  width: 54%;
+  // padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  // margin-bottom: 130px;
+  margin-top: 8vh;
+  // margin: 0 auto;
+  input {
+    background-color: white;
+    border: none;
+    font-size: 12px;
+    padding: 0;
   }
 }
+
+.dog-card-show p,
+input,
+label {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+// .dog-card-show {
+//   margin-bottom: 130px;
+//   margin-top: 130px;
+//   height: 360px;
+//   width: 43%;
+//   border-radius: 0px;
+//   #grad {
+//     background-image: linear-gradient(to right, red, yellow);
+//   }
+// }
 
 .pic {
   width: 340px;
@@ -99,12 +122,17 @@
   background-color: white;
 }
 
+.carousel {
+  display: flex;
+  align-items: center;
+}
+
 .carousel-item img {
   // height: 100%;
-  -o-object-fit: cover;
   object-fit: cover;
-  height: 340px;
-  width: 340px;
+  height: 332px;
+  width: 344px;
   overflow: hidden;
   border-radius: 0px;
+  padding: 8px;
 }

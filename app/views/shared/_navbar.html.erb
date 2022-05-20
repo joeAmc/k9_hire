@@ -16,8 +16,11 @@
               <%= link_to 'Add Dog', new_dog_path, class: 'nav-text' %>
             </li>
             <li class="nav-item dropdown">
-              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://media.istockphoto.com/vectors/missing-image-of-a-person-placeholder-vector-id1288129985?k=20&m=1288129985&s=612x612&w=0&h=OHfZHfKj0oqIDMl5f_oRqH13MHiB63nUmySYILbWbjE=" />
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="" style="position: absolute;"/>
+              <p class="avatar" style="margin: 0px;"><%= image_tag(current_user.avatar_thumbnail)%></p>
+              <%# <p><% cl_image_tag(current_user.avatar_thumbnail) %>
+              <%# <% cl_image_tag @user.key %>
+              <div class="dropdown-menu dropdown-menu-end" style="color: white;" aria-labelledby="navbarDropdown">
                 <%= link_to 'Log Out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' },  class: 'dropdown-item' %>
               </div>
             </li>
